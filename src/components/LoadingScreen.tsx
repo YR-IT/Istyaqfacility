@@ -6,9 +6,6 @@ interface LoadingScreenProps {
 }
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
-  const drillRef = useRef<HTMLDivElement>(null);
-  const wallRef = useRef<HTMLDivElement>(null);
-  const particlesRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
@@ -21,42 +18,22 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 1;
+        return prev + 2;
       });
-    }, 40);
+    }, 50);
 
     const timeline = anime.timeline({
       easing: 'easeOutExpo',
       complete: () => {
-        setTimeout(onLoadingComplete, 800);
+        setTimeout(onLoadingComplete, 500);
       }
     });
 
     // Initial setup
-    anime.set('.drill-container', {
-      translateX: -200,
-      opacity: 0
-    });
-
-    anime.set('.wall-section', {
-      scaleX: 0,
-      opacity: 0
-    });
-
-    anime.set('.crack-line', {
-      scaleX: 0,
-      opacity: 0
-    });
-
-    anime.set('.debris-particle', {
-      scale: 0,
-      opacity: 0
-    });
-
     anime.set('.logo-main', {
-      translateY: 100,
+      scale: 0.5,
       opacity: 0,
-      scale: 0.8
+      rotate: -180
     });
 
     anime.set('.logo-sub', {
@@ -68,13 +45,18 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
       width: '0%'
     });
 
-    // Logo entrance with shine effect
+    anime.set('.floating-element', {
+      scale: 0,
+      opacity: 0
+    });
+
+    // Logo entrance with rotation
     timeline.add({
       targets: '.logo-main',
-      translateY: 0,
-      opacity: 1,
       scale: 1,
-      duration: 1200,
+      opacity: 1,
+      rotate: 0,
+      duration: 1500,
       easing: 'easeOutBack'
     });
 
@@ -84,103 +66,44 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
       opacity: 1,
       duration: 800,
       easing: 'easeOutQuart'
-    }, '-=600');
-
-    // Wall appearance
-    timeline.add({
-      targets: '.wall-section',
-      scaleX: 1,
-      opacity: 1,
-      duration: 1000,
-      easing: 'easeOutQuart'
-    }, '-=400');
-
-    // Drill entrance
-    timeline.add({
-      targets: '.drill-container',
-      translateX: 0,
-      opacity: 1,
-      duration: 1500,
-      easing: 'easeOutQuart'
-    }, '-=500');
-
-    // Drilling action
-    timeline.add({
-      targets: '.drill-bit',
-      rotate: '1440deg',
-      duration: 2000,
-      easing: 'easeInOutQuart'
     }, '-=800');
 
-    // Wall cracking sequence
+    // Floating elements
     timeline.add({
-      targets: '.crack-line',
-      scaleX: 1,
-      opacity: 1,
-      duration: 600,
-      delay: anime.stagger(150),
+      targets: '.floating-element',
+      scale: 1,
+      opacity: 0.8,
+      duration: 1000,
+      delay: anime.stagger(200),
       easing: 'easeOutBack'
-    }, '-=1200');
-
-    // Debris explosion
-    timeline.add({
-      targets: '.debris-particle',
-      scale: [0, 2, 0],
-      opacity: [0, 1, 0],
-      translateX: () => anime.random(-150, 150),
-      translateY: () => anime.random(-150, 150),
-      rotate: () => anime.random(0, 360),
-      duration: 2000,
-      delay: anime.stagger(80),
-      easing: 'easeOutQuart'
-    }, '-=1000');
+    }, '-=600');
 
     // Progress bar animation
     timeline.add({
       targets: '.progress-bar',
       width: '100%',
-      duration: 3000,
+      duration: 2500,
       easing: 'easeInOutQuart'
-    }, '-=3000');
+    }, '-=2000');
 
-    // Continuous drill rotation
+    // Continuous floating animation
     anime({
-      targets: '.drill-bit',
-      rotate: '+=360deg',
-      duration: 800,
+      targets: '.floating-element',
+      translateY: [0, -20, 0],
+      scale: [1, 1.1, 1],
+      duration: 3000,
       loop: true,
-      easing: 'linear',
-      delay: 2500
+      delay: anime.stagger(300),
+      easing: 'easeInOutSine'
     });
 
     // Shimmer effects
     anime({
-      targets: '.shimmer-1',
+      targets: '.shimmer',
       translateX: ['-100%', '300%'],
-      duration: 2500,
+      duration: 2000,
       loop: true,
       easing: 'easeInOutQuart'
-    });
-
-    anime({
-      targets: '.shimmer-2',
-      translateX: ['-100%', '200%'],
-      duration: 3000,
-      loop: true,
-      easing: 'easeInOutQuart',
-      delay: 500
-    });
-
-    // Floating particles animation
-    anime({
-      targets: '.float-particle',
-      translateY: [0, -20, 0],
-      scale: [1, 1.2, 1],
-      opacity: [0.3, 1, 0.3],
-      duration: 3000,
-      loop: true,
-      delay: anime.stagger(200),
-      easing: 'easeInOutSine'
     });
 
     return () => {
@@ -189,24 +112,26 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   }, [onLoadingComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900 flex items-center justify-center overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
-        {/* Floating particles */}
-        {[...Array(60)].map((_, i) => (
+        {/* Floating design elements */}
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="float-particle absolute w-1 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"
+            className="floating-element absolute rounded-full bg-gradient-to-r from-emerald-400/20 to-emerald-300/20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 60 + 20}px`,
+              height: `${Math.random() * 60 + 20}px`,
               animationDelay: `${Math.random() * 3}s`
             }}
           />
         ))}
         
         {/* Radial gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-blue-900/20 to-slate-900/40" />
+        <div className="absolute inset-0 bg-gradient-radial from-transparent via-emerald-900/20 to-emerald-900/40" />
       </div>
 
       {/* Main content */}
@@ -214,101 +139,59 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         {/* Logo section */}
         <div ref={logoRef} className="mb-16">
           <div className="logo-main relative overflow-hidden">
-            <h1 className="text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 mb-4 relative">
-              <span className="relative z-10">Istyaq Facility</span>
-              <div className="shimmer-1 absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent transform -skew-x-12" />
-              <div className="shimmer-2 absolute inset-0 bg-gradient-to-r from-transparent via-yellow-300/30 to-transparent transform -skew-x-12" />
+            <h1 className="text-8xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-500 mb-4 relative">
+              <span className="relative z-10">Decorilla</span>
+              <div className="shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12" />
             </h1>
           </div>
-          <div className="logo-sub text-3xl font-semibold text-blue-300 relative overflow-hidden">
-            <span className="relative z-10">Interior & Constructs</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-200/20 to-transparent transform translate-x-full animate-pulse" />
+          <div className="logo-sub text-2xl font-semibold text-emerald-200 relative overflow-hidden">
+            <span className="relative z-10">Online Interior Design</span>
           </div>
         </div>
 
-        {/* Drilling animation */}
-        <div className="relative w-full max-w-lg h-64 mx-auto mb-16">
-          {/* Wall */}
-          <div ref={wallRef} className="wall-section absolute inset-0 bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 rounded-2xl shadow-2xl border border-gray-500 origin-left">
-            {/* Wall texture */}
-            <div className="absolute inset-2 bg-gradient-to-br from-gray-500/30 to-gray-800/30 rounded-xl" />
-            
-            {/* Crack lines */}
-            {[...Array(7)].map((_, i) => (
-              <div
-                key={i}
-                className="crack-line absolute bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 origin-left shadow-lg"
-                style={{
-                  top: `${35 + i * 8}%`,
-                  left: '50%',
-                  width: `${30 + i * 15}px`,
-                  height: '3px',
-                  transform: `rotate(${(i - 3) * 12}deg)`,
-                  boxShadow: '0 0 10px rgba(251, 191, 36, 0.6)'
-                }}
-              />
-            ))}
-          </div>
-
-          {/* Drill */}
-          <div ref={drillRef} className="drill-container absolute left-0 top-1/2 transform -translate-y-1/2 z-20">
-            <div className="relative">
-              {/* Drill body */}
-              <div className="w-40 h-12 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-500 rounded-r-full relative shadow-xl border border-gray-400">
-                {/* Drill details */}
-                <div className="absolute inset-y-2 left-3 right-12 bg-gradient-to-r from-yellow-500 via-orange-600 to-red-500 rounded shadow-inner" />
-                <div className="absolute top-1/2 left-6 transform -translate-y-1/2 w-3 h-3 bg-red-600 rounded-full animate-pulse shadow-lg" />
-                <div className="absolute top-1/2 left-12 transform -translate-y-1/2 w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                
-                {/* Drill bit */}
-                <div className="drill-bit absolute right-0 top-1/2 transform -translate-y-1/2 w-16 h-8 bg-gradient-to-r from-gray-600 to-gray-800 origin-center">
-                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-12 border-l-gray-700 border-t-6 border-t-transparent border-b-6 border-b-transparent" />
-                  <div className="absolute inset-1 bg-gradient-to-r from-gray-500 to-gray-700 rounded" />
-                </div>
-              </div>
-              
-              {/* Drill glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-r-full blur-sm animate-pulse" />
+        {/* Design elements */}
+        <div className="relative w-full max-w-lg h-32 mx-auto mb-16">
+          {/* Decorative design tools */}
+          <div className="absolute top-0 left-1/4 floating-element">
+            <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg transform rotate-12 shadow-xl">
+              <div className="absolute inset-2 bg-white/20 rounded backdrop-blur-sm" />
             </div>
           </div>
-
-          {/* Debris particles */}
-          <div ref={particlesRef} className="absolute inset-0 pointer-events-none">
-            {[...Array(25)].map((_, i) => (
-              <div
-                key={i}
-                className="debris-particle absolute rounded-full"
-                style={{
-                  left: '50%',
-                  top: '50%',
-                  width: `${Math.random() * 8 + 4}px`,
-                  height: `${Math.random() * 8 + 4}px`,
-                  backgroundColor: ['#fbbf24', '#f97316', '#ef4444', '#94a3b8'][Math.floor(Math.random() * 4)]
-                }}
-              />
-            ))}
+          
+          <div className="absolute top-8 right-1/4 floating-element">
+            <div className="w-12 h-12 bg-gradient-to-br from-emerald-300 to-emerald-500 rounded-full shadow-xl">
+              <div className="absolute inset-1 bg-white/20 rounded-full backdrop-blur-sm" />
+            </div>
           </div>
-
-          {/* Impact glow */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-radial from-yellow-400/40 via-orange-500/20 to-transparent rounded-full animate-pulse" />
+          
+          <div className="absolute bottom-0 left-1/3 floating-element">
+            <div className="w-20 h-8 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full transform -rotate-6 shadow-xl">
+              <div className="absolute inset-1 bg-white/20 rounded-full backdrop-blur-sm" />
+            </div>
+          </div>
+          
+          <div className="absolute top-4 right-1/3 floating-element">
+            <div className="w-8 h-20 bg-gradient-to-b from-emerald-300 to-emerald-500 rounded-full transform rotate-45 shadow-xl">
+              <div className="absolute inset-1 bg-white/20 rounded-full backdrop-blur-sm" />
+            </div>
+          </div>
         </div>
 
         {/* Loading text */}
         <div className="mb-8">
-          <div className="text-3xl font-bold text-white mb-2 relative overflow-hidden">
-            <span className="relative z-10">Crafting Your Vision</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform translate-x-full animate-pulse" />
+          <div className="text-2xl font-bold text-white mb-2 relative overflow-hidden">
+            <span className="relative z-10">Creating Beautiful Spaces</span>
           </div>
-          <div className="text-xl text-blue-300 flex items-center justify-center">
-            <span>Building Excellence</span>
-            <span className="ml-2 text-yellow-400">
+          <div className="text-lg text-emerald-200 flex items-center justify-center">
+            <span>Designing Your Dream Home</span>
+            <span className="ml-2 text-emerald-400">
               {[...Array(3)].map((_, i) => (
                 <span
                   key={i}
-                  className="inline-block animate-bounce text-2xl"
+                  className="inline-block animate-bounce text-xl"
                   style={{ animationDelay: `${i * 0.3}s` }}
                 >
-                  ⚡
+                  ✨
                 </span>
               ))}
             </span>
@@ -318,26 +201,26 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         {/* Progress section */}
         <div className="w-full max-w-md mx-auto">
           {/* Progress bar */}
-          <div ref={progressRef} className="w-full h-3 bg-gray-700/50 rounded-full overflow-hidden backdrop-blur-sm border border-gray-600 mb-4">
-            <div className="progress-bar h-full bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 rounded-full relative">
+          <div ref={progressRef} className="w-full h-2 bg-emerald-800/50 rounded-full overflow-hidden backdrop-blur-sm border border-emerald-700 mb-4">
+            <div className="progress-bar h-full bg-gradient-to-r from-emerald-400 via-emerald-300 to-emerald-400 rounded-full relative">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-pulse" />
-              <div className="absolute right-0 top-0 w-8 h-full bg-gradient-to-l from-white/60 to-transparent rounded-r-full" />
+              <div className="absolute right-0 top-0 w-6 h-full bg-gradient-to-l from-white/60 to-transparent rounded-r-full" />
             </div>
           </div>
           
           {/* Progress text */}
           <div className="flex justify-between items-center text-sm">
-            <span className="text-blue-300 font-medium">Loading...</span>
-            <span className="text-yellow-400 font-bold text-lg">{progress}%</span>
+            <span className="text-emerald-300 font-medium">Loading...</span>
+            <span className="text-emerald-400 font-bold text-lg">{progress}%</span>
           </div>
         </div>
       </div>
 
       {/* Ambient lighting effects */}
-      <div className="absolute top-10 left-10 w-40 h-40 bg-yellow-400/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-10 right-10 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-5 w-24 h-24 bg-blue-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-20 left-1/3 w-28 h-28 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+      <div className="absolute top-10 left-10 w-40 h-40 bg-emerald-400/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-emerald-300/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-5 w-24 h-24 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-20 left-1/3 w-28 h-28 bg-emerald-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
     </div>
   );
 };

@@ -1,109 +1,116 @@
 import React from 'react';
-import { ArrowRight, MessageCircle, Phone, Sparkles } from 'lucide-react';
+import { ArrowRight, Play, Star, Users, Award } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
+  const scrollToServices = () => {
+    const element = document.querySelector('#services');
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.8), rgba(30, 64, 175, 0.7)), url('https://images.pexels.com/photos/276508/pexels-photo-276508.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
-        }}
-      />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-400 rounded-full animate-twinkle"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`
-            }}
-          />
-        ))}
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-blue-50">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23059669' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
       </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-        <div className="animate-fade-in-up">
-          <div className="relative mb-8">
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 leading-tight relative overflow-hidden">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 glow-text shine-effect">
-                Istyaq Facility
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="text-center lg:text-left">
+            <div className="mb-6">
+              <span className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
+                <Award className="h-4 w-4 mr-2" />
+                #1 Online Interior Design Platform
               </span>
-              <span className="block text-3xl md:text-4xl lg:text-6xl text-blue-200 font-medium mt-4 shine-effect">
-                Interior & Constructs
-              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Transform Your Space with
+              <span className="text-emerald-600 block">Expert Designers</span>
             </h1>
-            
-            {/* Floating sparkles */}
-            <div className="absolute top-0 left-1/4 animate-bounce">
-              <Sparkles className="h-8 w-8 text-yellow-400 animate-pulse" />
+
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+              Get professional interior design from top designers. From concept to completion, 
+              we make beautiful, functional spaces that reflect your style and budget.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <button
+                onClick={scrollToServices}
+                className="group bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center space-x-3"
+              >
+                <span>Start Your Project</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <button className="group bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 border-2 border-gray-200 hover:border-emerald-300 flex items-center justify-center space-x-3">
+                <Play className="h-5 w-5 text-emerald-600" />
+                <span>Watch How It Works</span>
+              </button>
             </div>
-            <div className="absolute top-1/3 right-1/4 animate-bounce" style={{ animationDelay: '1s' }}>
-              <Sparkles className="h-6 w-6 text-orange-400 animate-pulse" />
-            </div>
-            <div className="absolute bottom-1/4 left-1/3 animate-bounce" style={{ animationDelay: '2s' }}>
-              <Sparkles className="h-7 w-7 text-yellow-300 animate-pulse" />
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-gray-900">50K+</div>
+                <div className="text-sm text-gray-600">Happy Clients</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-gray-900">500+</div>
+                <div className="text-sm text-gray-600">Expert Designers</div>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <div className="text-2xl font-bold text-gray-900">4.9</div>
+                  <Star className="h-5 w-5 text-yellow-400 fill-current ml-1" />
+                </div>
+                <div className="text-sm text-gray-600">Average Rating</div>
+              </div>
             </div>
           </div>
-          
-          <p className="text-xl md:text-2xl lg:text-4xl mb-8 font-light max-w-4xl mx-auto leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
-            Delivering quality craftsmanship and modern design to turn your vision into reality
-          </p>
-          
-          <p className="text-lg md:text-xl mb-12 text-blue-100 max-w-3xl mx-auto shine-effect">
-            Professional construction & interior design company offering end-to-end solutions 
-            for residential and commercial spaces
-          </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-            <button
-              onClick={scrollToContact}
-              className="group bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 hover:from-yellow-500 hover:via-orange-600 hover:to-yellow-700 text-black px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center space-x-3 pulse-glow btn-primary"
-            >
-              <span>Get a Quote</span>
-              <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
-            </button>
-            
-            <a
-              href="https://wa.me/919646703020"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center space-x-3 pulse-glow btn-primary"
-            >
-              <MessageCircle className="h-6 w-6" />
-              <span>Chat on WhatsApp</span>
-            </a>
-          </div>
+          {/* Right Content - Hero Image */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt="Beautiful interior design"
+                className="w-full h-96 lg:h-[500px] object-cover"
+              />
+              
+              {/* Floating Cards */}
+              <div className="absolute top-6 left-6 bg-white rounded-lg p-4 shadow-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                    <Users className="h-5 w-5 text-emerald-600" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-gray-900">Sarah M.</div>
+                    <div className="text-xs text-gray-600">Interior Designer</div>
+                  </div>
+                </div>
+              </div>
 
-          <div className="flex justify-center">
-            <a href="tel:+919646703020" className="flex items-center space-x-3 text-blue-200 hover:text-yellow-400 transition-colors group">
-              <Phone className="h-6 w-6 group-hover:animate-pulse" />
-              <span className="text-xl font-medium">+91 9646703020</span>
-            </a>
+              <div className="absolute bottom-6 right-6 bg-white rounded-lg p-4 shadow-lg">
+                <div className="text-sm font-semibold text-gray-900 mb-1">Project Complete!</div>
+                <div className="flex items-center space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                  ))}
+                  <span className="text-xs text-gray-600 ml-2">5.0</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-emerald-200 rounded-full opacity-20 animate-pulse" />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center pulse-glow">
-          <div className="w-1 h-3 bg-yellow-400 rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
-
-      {/* Ambient glow effects */}
-      <div className="absolute top-20 left-20 w-40 h-40 bg-yellow-400/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-20 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 right-10 w-24 h-24 bg-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
     </section>
   );
 };
