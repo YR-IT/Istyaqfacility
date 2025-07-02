@@ -47,9 +47,9 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">
-              Decorilla
+              Istyaq Facility
             </h1>
-            <p className="text-xs text-emerald-600 font-medium">Online Interior Design</p>
+            <p className="text-xs text-emerald-600 font-medium">Interior Design</p>
           </div>
 
           {/* Desktop Navigation */}

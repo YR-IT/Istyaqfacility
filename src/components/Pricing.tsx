@@ -22,7 +22,7 @@ const Pricing = () => {
       name: 'E-Design',
       price: 149,
       period: 'per room',
-      description: 'Online design service with professional guidance for DIY implementation',
+      description: 'design service with professional guidance for DIY implementation',
       features: [
         'Custom design concept',
         'Digital mood board',

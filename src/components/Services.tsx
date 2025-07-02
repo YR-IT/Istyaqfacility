@@ -14,7 +14,7 @@ const Services = () => {
     {
       icon: Monitor,
       title: 'E-Design',
-      description: 'Online design service perfect for DIY enthusiasts who want professional guidance.',
+      description: 'design service perfect for DIY enthusiasts who want professional guidance.',
       price: 'Starting at $149',
       features: ['Digital design board', 'Product recommendations', 'Layout plans', '2 revision rounds'],
       popular: false

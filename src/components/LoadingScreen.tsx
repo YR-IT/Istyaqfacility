@@ -140,12 +140,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         <div ref={logoRef} className="mb-16">
           <div className="logo-main relative overflow-hidden">
             <h1 className="text-8xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-emerald-500 mb-4 relative">
-              <span className="relative z-10">Decorilla</span>
+              <span className="relative z-10">Istyaq Facility</span>
               <div className="shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12" />
             </h1>
           </div>
           <div className="logo-sub text-2xl font-semibold text-emerald-200 relative overflow-hidden">
-            <span className="relative z-10">Online Interior Design</span>
+            <span className="relative z-10">Interior Design</span>
           </div>
         </div>
 

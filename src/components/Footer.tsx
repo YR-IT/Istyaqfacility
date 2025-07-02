@@ -49,8 +49,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-3xl font-bold mb-4">Decorilla</h3>
-            <p className="text-sm text-emerald-400 mb-6 font-medium">Online Interior Design</p>
+            <h3 className="text-3xl font-bold mb-4">Istyaq Facility</h3>
+            <p className="text-sm text-emerald-400 mb-6 font-medium">Interior Design</p>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Transform your space with professional interior design services. 
               From concept to completion, we make beautiful, functional spaces 
@@ -60,8 +60,8 @@ const Footer = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-emerald-400" />
-                <a href="mailto:hello@decorilla.com" className="text-gray-300 hover:text-white transition-colors">
-                  hello@decorilla.com
+                <a href="mailto:hello@Istyaq Facility.com" className="text-gray-300 hover:text-white transition-colors">
+                  hello@Istyaq Facility.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -168,7 +168,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Decorilla. All rights reserved.
+              © 2024 Istyaq Facility. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">

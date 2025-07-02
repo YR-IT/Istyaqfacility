@@ -8,7 +8,7 @@ const Testimonials = () => {
       location: 'Austin, TX',
       project: 'Living Room Redesign',
       rating: 5,
-      testimonial: 'Working with Decorilla was amazing! My designer understood exactly what I wanted and delivered beyond my expectations. The whole process was smooth and professional.',
+      testimonial: 'Working with Istyaq Facility was amazing! My designer understood exactly what I wanted and delivered beyond my expectations. The whole process was smooth and professional.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       designer: 'Sarah Johnson'
     },
@@ -44,7 +44,7 @@ const Testimonials = () => {
       location: 'Boston, MA',
       project: 'Apartment Styling',
       rating: 5,
-      testimonial: 'As a first-time homeowner, I was overwhelmed by design choices. Decorilla made it easy and fun. My apartment now reflects my personality perfectly.',
+      testimonial: 'As a first-time homeowner, I was overwhelmed by design choices. Istyaq Facility made it easy and fun. My apartment now reflects my personality perfectly.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
       designer: 'Sarah Johnson'
     },
@@ -68,7 +68,7 @@ const Testimonials = () => {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Don't just take our word for it. Here's what thousands of satisfied clients 
-            have to say about their Decorilla experience.
+            have to say about their Istyaq Facility experience.
           </p>
         </div>
 
@@ -126,7 +126,7 @@ const Testimonials = () => {
               Average rating from <span className="font-bold">50,000+</span> completed projects
             </p>
             <p className="text-gray-600">
-              Join thousands of happy clients who have transformed their spaces with Decorilla
+              Join thousands of happy clients who have transformed their spaces with Istyaq Facility
             </p>
           </div>
         </div>

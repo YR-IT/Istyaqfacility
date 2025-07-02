@@ -89,7 +89,7 @@ const HowItWorks = () => {
               Ready to Get Started?
             </h3>
             <p className="text-gray-600 mb-6">
-              Join thousands of happy clients who have transformed their spaces with Decorilla.
+              Join thousands of happy clients who have transformed their spaces with Istyaq Facility.
             </p>
             <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
               Start Your Project Today
