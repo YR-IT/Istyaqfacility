@@ -1,113 +1,112 @@
-import React, { useEffect, useState } from 'react';
-import { Menu, X, Building2 } from 'lucide-react';
-import anime from 'animejs';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 
-interface HeaderProps {
-  isMenuOpen: boolean;
-  setIsMenuOpen: (open: boolean) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ isMenuOpen, setIsMenuOpen }) => {
-  const [scrolled, setScrolled] = useState(false);
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    anime({
-      targets: '.header-item',
-      translateY: [-20, 0],
-      opacity: [0, 1],
-      duration: 800,
-      delay: anime.stagger(100),
-      easing: 'easeOutQuart'
-    });
-  }, []);
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
-  const menuItems = ['Home', 'Services', 'About', 'Projects', 'Contact'];
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-wood-200' 
-        : 'bg-wood-50/95 backdrop-blur-sm border-b border-wood-200 shadow-sm'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <div className="flex items-center space-x-3 header-item group cursor-pointer">
-            <div className="bg-wood-700 p-2 rounded-lg group-hover:bg-wood-800 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-              <Building2 className="w-8 h-8 text-white" />
-            </div>
-            <div>
-              <span className="text-2xl font-bold text-wood-800 group-hover:text-wood-900 transition-colors">Istyaq</span>
-              <p className="text-sm text-wood-600 leading-tight">Facility Interior & Constructs</p>
-            </div>
+        <div className="flex justify-between items-center h-16 lg:h-20">
+          <div className="flex-shrink-0">
+            <h1 className="text-xl lg:text-2xl font-bold text-gray-800">
+              Istyaq Facility
+            </h1>
+            <p className="text-xs text-blue-600 font-medium">Interior & Constructs</p>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {menuItems.map((item, index) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="header-item text-wood-700 hover:text-wood-900 font-medium transition-all duration-300 relative group py-2 px-1"
-                onMouseEnter={(e) => {
-                  anime({
-                    targets: e.currentTarget.querySelector('.nav-underline'),
-                    width: '100%',
-                    duration: 300,
-                    easing: 'easeOutQuart'
-                  });
-                }}
-                onMouseLeave={(e) => {
-                  anime({
-                    targets: e.currentTarget.querySelector('.nav-underline'),
-                    width: '0%',
-                    duration: 300,
-                    easing: 'easeOutQuart'
-                  });
-                }}
+          <nav className="hidden lg:flex space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
               >
-                {item}
-                <span className="nav-underline absolute -bottom-1 left-0 w-0 h-0.5 bg-wood-700 transition-all duration-300"></span>
-              </a>
+                {item.name}
+              </button>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <a href="tel:+919646703020" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+              <Phone className="h-4 w-4" />
+              <span className="text-sm font-medium">+91 9646703020</span>
+            </a>
+            <a
+              href="https://wa.me/919646703020"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="text-sm font-medium">WhatsApp</span>
+            </a>
+          </div>
+
           <button
-            className="md:hidden p-2 text-wood-700 hover:text-wood-900 transition-all duration-300 hover:bg-wood-100 rounded-lg"
+            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-500 ${
-          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}>
-          <div className="border-t border-wood-200 py-4">
-            {menuItems.map((item, index) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="block py-3 px-4 text-wood-700 hover:text-wood-900 hover:bg-wood-100 font-medium transition-all duration-300 rounded-lg mx-2 mb-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+                >
+                  {item.name}
+                </button>
+              ))}
+              <div className="pt-4 border-t border-gray-200 mt-4">
+                <a href="tel:+919646703020" className="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:text-blue-600">
+                  <Phone className="h-4 w-4" />
+                  <span>+91 9646703020</span>
+                </a>
+                <a
+                  href="https://wa.me/919646703020"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 px-3 py-2 mt-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
