@@ -4,20 +4,20 @@ import { Star, MapPin, Award, MessageCircle } from 'lucide-react';
 const Designers = () => {
   const designers = [
     {
-      name: 'Sarah Johnson',
-      specialty: 'Modern & Minimalist',
-      location: 'New York, NY',
+      name: 'Rajesh Kumar',
+      specialty: 'Modern & Contemporary',
+      location: 'Chandigarh',
       rating: 4.9,
       reviews: 127,
       projects: 89,
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
       badges: ['Top Rated', 'Fast Response'],
-      bio: 'Specializing in clean, modern designs that maximize space and functionality.'
+      bio: 'Specializing in modern designs that blend functionality with aesthetics.'
     },
     {
-      name: 'Michael Chen',
-      specialty: 'Contemporary & Luxury',
-      location: 'Los Angeles, CA',
+      name: 'Priya Sharma',
+      specialty: 'Traditional & Luxury',
+      location: 'Mohali',
       rating: 4.8,
       reviews: 203,
       projects: 156,
@@ -26,9 +26,9 @@ const Designers = () => {
       bio: 'Creating sophisticated spaces with attention to detail and luxury finishes.'
     },
     {
-      name: 'Emma Wilson',
-      specialty: 'Scandinavian & Cozy',
-      location: 'Seattle, WA',
+      name: 'Amit Singh',
+      specialty: 'Minimalist & Eco-Friendly',
+      location: 'Panchkula',
       rating: 4.9,
       reviews: 94,
       projects: 67,
@@ -37,9 +37,9 @@ const Designers = () => {
       bio: 'Bringing warmth and comfort to homes with sustainable design practices.'
     },
     {
-      name: 'David Park',
+      name: 'Neha Gupta',
       specialty: 'Industrial & Urban',
-      location: 'Chicago, IL',
+      location: 'Chandigarh',
       rating: 4.7,
       reviews: 156,
       projects: 112,
@@ -50,15 +50,15 @@ const Designers = () => {
   ];
 
   return (
-    <section id="designers" className="py-20 bg-gray-50">
+    <section id="designers" className="py-20 bg-amber-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Meet Our Designers
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
+            Meet Our Expert Team
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Work with vetted, professional interior designers who understand your style 
-            and bring years of experience to every project.
+          <p className="text-xl text-amber-800 max-w-3xl mx-auto">
+            Work with experienced professionals who understand your vision 
+            and bring years of expertise to every project.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ const Designers = () => {
                   {designer.badges.map((badge, badgeIndex) => (
                     <span
                       key={badgeIndex}
-                      className="block bg-emerald-600 text-white px-2 py-1 rounded-full text-xs font-medium"
+                      className="block bg-amber-700 text-white px-2 py-1 rounded-full text-xs font-medium"
                     >
                       {badge}
                     </span>
@@ -89,30 +89,30 @@ const Designers = () => {
 
                 {/* Rating */}
                 <div className="absolute top-4 right-4 bg-white rounded-lg px-2 py-1 flex items-center space-x-1">
-                  <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                  <span className="text-sm font-semibold text-gray-900">{designer.rating}</span>
+                  <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                  <span className="text-sm font-semibold text-amber-900">{designer.rating}</span>
                 </div>
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                <h3 className="text-xl font-bold text-amber-900 mb-1">
                   {designer.name}
                 </h3>
                 
-                <p className="text-emerald-600 font-medium mb-2">
+                <p className="text-amber-700 font-medium mb-2">
                   {designer.specialty}
                 </p>
                 
-                <div className="flex items-center text-gray-600 text-sm mb-3">
+                <div className="flex items-center text-amber-800 text-sm mb-3">
                   <MapPin className="h-4 w-4 mr-1" />
                   <span>{designer.location}</span>
                 </div>
                 
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                <p className="text-amber-800 text-sm mb-4 leading-relaxed">
                   {designer.bio}
                 </p>
                 
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                <div className="flex items-center justify-between text-sm text-amber-700 mb-4">
                   <div className="flex items-center space-x-1">
                     <Award className="h-4 w-4" />
                     <span>{designer.projects} projects</span>
@@ -122,9 +122,9 @@ const Designers = () => {
                   </div>
                 </div>
                 
-                <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center space-x-2">
+                <button className="w-full bg-amber-700 hover:bg-amber-800 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center space-x-2">
                   <MessageCircle className="h-4 w-4" />
-                  <span>Contact Designer</span>
+                  <span>Contact Expert</span>
                 </button>
               </div>
             </div>
@@ -132,15 +132,15 @@ const Designers = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-emerald-50 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Want to Join Our Designer Network?
+          <div className="bg-amber-100 rounded-2xl p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-amber-900 mb-4">
+              Want to Join Our Expert Team?
             </h3>
-            <p className="text-gray-600 mb-6">
-              We're always looking for talented designers to join our platform and help clients create beautiful spaces.
+            <p className="text-amber-800 mb-6">
+              We're always looking for talented professionals to join our team and help clients create beautiful spaces.
             </p>
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
-              Apply to Become a Designer
+            <button className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
+              Join Our Team
             </button>
           </div>
         </div>

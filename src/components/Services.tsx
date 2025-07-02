@@ -1,38 +1,38 @@
 import React from 'react';
-import { Palette, Monitor, Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
+import { Palette, Hammer, Wrench, Home, ArrowRight } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
       icon: Palette,
-      title: 'Full Interior Design',
-      description: 'Complete room makeovers with personalized design concepts, furniture selection, and styling.',
-      price: 'Starting at $299',
-      features: ['Custom mood boards', '3D renderings', 'Shopping lists', 'Unlimited revisions'],
+      title: 'Interior Design',
+      description: 'Transform your space with elegant, modern, and functional interiors. Modular kitchens, living room design, lighting, and more.',
+      price: 'Starting at ₹50,000',
+      features: ['Custom design concepts', '3D visualizations', 'Material selection', 'Project management'],
       popular: true
     },
     {
-      icon: Monitor,
-      title: 'E-Design',
-      description: 'design service perfect for DIY enthusiasts who want professional guidance.',
-      price: 'Starting at $149',
-      features: ['Digital design board', 'Product recommendations', 'Layout plans', '2 revision rounds'],
+      icon: Hammer,
+      title: 'Construction',
+      description: 'Full-scale construction services from layout planning to completion — residential, commercial, and custom builds.',
+      price: 'Starting at ₹1,500/sq ft',
+      features: ['Complete construction', 'Quality materials', 'Timely delivery', 'Expert supervision'],
       popular: false
     },
     {
-      icon: Sparkles,
-      title: 'Styling Service',
-      description: 'Perfect finishing touches with accessories, art, and decor to complete your space.',
-      price: 'Starting at $99',
-      features: ['Accessory selection', 'Art curation', 'Styling guide', 'Shopping assistance'],
+      icon: Wrench,
+      title: 'Renovation',
+      description: 'Give your old space a fresh new look. Kitchen, bathroom, or full home — we specialize in stylish and affordable makeovers.',
+      price: 'Starting at ₹25,000',
+      features: ['Space optimization', 'Modern upgrades', 'Cost-effective solutions', 'Minimal disruption'],
       popular: false
     },
     {
-      icon: MessageCircle,
-      title: 'Design Consultation',
-      description: 'One-on-one consultation with expert designers to discuss your project needs.',
-      price: 'Starting at $49',
-      features: ['60-minute call', 'Design advice', 'Project roadmap', 'Resource recommendations'],
+      icon: Home,
+      title: 'House Services',
+      description: 'Quick plumbing, electrical, painting, carpentry, and home maintenance services at your doorstep.',
+      price: 'Starting at ₹500',
+      features: ['Emergency repairs', 'Regular maintenance', 'Skilled technicians', 'Quality assurance'],
       popular: false
     }
   ];
@@ -41,12 +41,12 @@ const Services = () => {
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Our Design Services
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
+            Our Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose the perfect service for your project. From full room makeovers to quick consultations, 
-            we have options for every budget and timeline.
+          <p className="text-xl text-amber-800 max-w-3xl mx-auto">
+            Choose the perfect service for your project. From complete construction to quick repairs, 
+            we have solutions for every need and budget.
           </p>
         </div>
 
@@ -55,34 +55,34 @@ const Services = () => {
             <div
               key={index}
               className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 ${
-                service.popular ? 'border-emerald-500' : 'border-gray-100'
+                service.popular ? 'border-amber-500' : 'border-amber-100'
               } overflow-hidden group`}
             >
               {service.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-emerald-500 text-white text-center py-2 text-sm font-semibold">
+                <div className="absolute top-0 left-0 right-0 bg-amber-600 text-white text-center py-2 text-sm font-semibold">
                   Most Popular
                 </div>
               )}
               
               <div className={`p-8 ${service.popular ? 'pt-12' : ''}`}>
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${
-                  service.popular ? 'bg-emerald-100' : 'bg-gray-100'
+                  service.popular ? 'bg-amber-100' : 'bg-amber-50'
                 }`}>
                   <service.icon className={`h-8 w-8 ${
-                    service.popular ? 'text-emerald-600' : 'text-gray-600'
+                    service.popular ? 'text-amber-700' : 'text-amber-600'
                   }`} />
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-amber-900 mb-3">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-amber-800 mb-6 leading-relaxed">
                   {service.description}
                 </p>
                 
                 <div className={`text-2xl font-bold mb-6 ${
-                  service.popular ? 'text-emerald-600' : 'text-gray-900'
+                  service.popular ? 'text-amber-700' : 'text-amber-900'
                 }`}>
                   {service.price}
                 </div>
@@ -91,17 +91,17 @@ const Services = () => {
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center space-x-3">
                       <div className={`w-2 h-2 rounded-full ${
-                        service.popular ? 'bg-emerald-500' : 'bg-gray-400'
+                        service.popular ? 'bg-amber-600' : 'bg-amber-500'
                       }`} />
-                      <span className="text-sm text-gray-700">{feature}</span>
+                      <span className="text-sm text-amber-800">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
                 <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 group ${
                   service.popular 
-                    ? 'bg-emerald-600 hover:bg-emerald-700 text-white' 
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                    ? 'bg-amber-700 hover:bg-amber-800 text-white' 
+                    : 'bg-amber-100 hover:bg-amber-200 text-amber-900'
                 }`}>
                   <span>Get Started</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -112,11 +112,11 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">
+          <p className="text-amber-800 mb-6">
             Not sure which service is right for you?
           </p>
-          <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
-            Take Our Quiz
+          <button className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
+            Get Free Consultation
           </button>
         </div>
       </div>

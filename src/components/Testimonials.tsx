@@ -4,58 +4,58 @@ import { Star, Quote } from 'lucide-react';
 const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Jennifer Martinez',
-      location: 'Austin, TX',
-      project: 'Living Room Redesign',
+      name: 'Aarav Singh',
+      location: 'Lucknow',
+      project: '4BHK Mohali',
       rating: 5,
-      testimonial: 'Working with Istyaq Facility was amazing! My designer understood exactly what I wanted and delivered beyond my expectations. The whole process was smooth and professional.',
+      testimonial: 'The team at Istyaq Facility delivered beyond expectations! Everything was smooth, timely, and premium. Our home looks absolutely stunning.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      designer: 'Sarah Johnson'
+      designer: 'Rajesh Kumar'
     },
     {
-      name: 'Robert Chen',
-      location: 'San Francisco, CA',
-      project: 'Home Office Design',
+      name: 'Rajesh Kumar',
+      location: 'Chandigarh',
+      project: 'Piramal Finance Ltd.',
       rating: 5,
-      testimonial: 'The e-design service was perfect for my needs. I got professional guidance at an affordable price, and the results speak for themselves. Highly recommended!',
+      testimonial: 'Showroom design matched our brand image perfectly. Fast and professional! The attention to detail was exceptional.',
       image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      designer: 'Michael Chen'
+      designer: 'Priya Sharma'
     },
     {
-      name: 'Lisa Thompson',
-      location: 'Miami, FL',
-      project: 'Master Bedroom',
+      name: 'Dr. Harpal Singh',
+      location: 'Chandigarh',
+      project: 'Luxury Bungalow',
       rating: 5,
-      testimonial: 'I love my new bedroom! The designer created a space that feels like a luxury hotel. The attention to detail and quality of service was exceptional.',
+      testimonial: 'Top-quality materials, elegant interiors. Everyone compliments our home! The colonial-style renovation exceeded our expectations.',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      designer: 'Emma Wilson'
+      designer: 'Amit Singh'
     },
     {
-      name: 'Mark Rodriguez',
-      location: 'Denver, CO',
+      name: 'Sunita Verma',
+      location: 'Mohali',
       project: 'Kitchen Renovation',
       rating: 5,
-      testimonial: 'The full design service was worth every penny. From concept to completion, my designer guided me through everything. My kitchen is now the heart of our home.',
+      testimonial: 'The modular kitchen design is perfect for our family needs. Professional service from start to finish.',
       image: 'https://images.pexels.com/photos/3184340/pexels-photo-3184340.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      designer: 'David Park'
+      designer: 'Neha Gupta'
     },
     {
-      name: 'Amanda Foster',
-      location: 'Boston, MA',
-      project: 'Apartment Styling',
+      name: 'Vikram Malhotra',
+      location: 'Panchkula',
+      project: 'Office Interior',
       rating: 5,
-      testimonial: 'As a first-time homeowner, I was overwhelmed by design choices. Istyaq Facility made it easy and fun. My apartment now reflects my personality perfectly.',
+      testimonial: 'Outstanding work on our office interiors. The team understood our requirements perfectly and delivered on time.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      designer: 'Sarah Johnson'
+      designer: 'Rajesh Kumar'
     },
     {
-      name: 'James Wilson',
-      location: 'Portland, OR',
-      project: 'Living Room & Dining',
+      name: 'Meera Joshi',
+      location: 'Chandigarh',
+      project: 'Bathroom Renovation',
       rating: 5,
-      testimonial: 'The 3D renderings helped me visualize everything before purchasing. The shopping list was detailed and within budget. Couldn\'t be happier with the results!',
+      testimonial: 'Beautiful bathroom renovation with premium fixtures. The team was professional and completed work without any hassle.',
       image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
-      designer: 'Michael Chen'
+      designer: 'Priya Sharma'
     }
   ];
 
@@ -63,11 +63,11 @@ const Testimonials = () => {
     <section id="testimonials" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what thousands of satisfied clients 
+          <p className="text-xl text-amber-800 max-w-3xl mx-auto">
+            Don't just take our word for it. Here's what hundreds of satisfied clients 
             have to say about their Istyaq Facility experience.
           </p>
         </div>
@@ -76,10 +76,10 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 group border border-gray-100 relative"
+              className="bg-amber-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 group border border-amber-100 relative"
             >
               <div className="absolute top-6 right-6 opacity-20 group-hover:opacity-30 transition-opacity">
-                <Quote className="h-12 w-12 text-emerald-600" />
+                <Quote className="h-12 w-12 text-amber-700" />
               </div>
               
               <div className="flex items-center mb-6">
@@ -89,44 +89,44 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="text-lg font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-600">{testimonial.location}</p>
-                  <p className="text-sm text-emerald-600 font-medium">{testimonial.project}</p>
+                  <h4 className="text-lg font-bold text-amber-900">{testimonial.name}</h4>
+                  <p className="text-sm text-amber-700">{testimonial.location}</p>
+                  <p className="text-sm text-amber-600 font-medium">{testimonial.project}</p>
                 </div>
               </div>
 
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />
                 ))}
               </div>
 
-              <p className="text-gray-700 leading-relaxed italic mb-4">
+              <p className="text-amber-800 leading-relaxed italic mb-4">
                 "{testimonial.testimonial}"
               </p>
 
-              <div className="text-sm text-gray-500">
-                Designer: <span className="font-medium text-emerald-600">{testimonial.designer}</span>
+              <div className="text-sm text-amber-700">
+                Expert: <span className="font-medium text-amber-600">{testimonial.designer}</span>
               </div>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-emerald-50 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-amber-100 rounded-2xl p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center mb-4">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-8 w-8 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-8 w-8 text-yellow-500 fill-current" />
                 ))}
               </div>
-              <span className="text-3xl font-bold text-gray-900 ml-4">4.9/5</span>
+              <span className="text-3xl font-bold text-amber-900 ml-4">4.9/5</span>
             </div>
-            <p className="text-xl text-gray-700 mb-2">
-              Average rating from <span className="font-bold">50,000+</span> completed projects
+            <p className="text-xl text-amber-800 mb-2">
+              Average rating from <span className="font-bold">500+</span> completed projects
             </p>
-            <p className="text-gray-600">
-              Join thousands of happy clients who have transformed their spaces with Istyaq Facility
+            <p className="text-amber-700">
+              Join hundreds of happy clients who have transformed their spaces with Istyaq Facility
             </p>
           </div>
         </div>
