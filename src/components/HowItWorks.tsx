@@ -24,7 +24,7 @@ const HowItWorks = () => {
     <section id="how-it-works" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6 maintheme font-playfair">How It Works</h2>
+          <h2 className="text-4xl font-bold mb-6 maintheme font-playfair mt-4">How It Works</h2>
           <p className="text-xl maintheme max-w-2xl mx-auto">
             Our simple, three-step process ensures a smooth and satisfying experience from start to finish.
           </p>
