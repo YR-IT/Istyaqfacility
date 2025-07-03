@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-
+import backgroundImg from '../images/background img.jpeg';
 const Home = () => {
   return (
     <div className="relative">
@@ -11,7 +11,7 @@ const Home = () => {
       <section
         className="h-screen bg-cover bg-center flex items-center justify-center text-white relative"
         style={{
-          backgroundImage: `url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600')`,
+          backgroundImage: `url(${backgroundImg})`,
         }}
       >
         <div className="absolute inset-0 bg-black/40" />
