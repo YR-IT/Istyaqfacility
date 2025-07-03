@@ -1,6 +1,5 @@
-import React from 'react';
-import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 
+import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
@@ -54,7 +53,7 @@ const Blog = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
             Design Insights & Tips
           </h2>
-          <p className="text-xl text-amber-800 max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto">
             Stay updated with the latest design trends, expert tips, and inspiration 
             from our team of professional designers and craftsmen.
           </p>

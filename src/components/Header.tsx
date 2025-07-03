@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, User, Search, Heart, ShoppingBag } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,28 +16,29 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { 
-      name: 'Services', 
-      href: '#services',
-      dropdown: ['Interior Design', 'Construction', 'Renovation', 'House Services']
-    },
-    { name: 'How It Works', href: '#how-it-works' },
-    { 
-      name: 'Portfolio', 
-      href: '#portfolio',
-      dropdown: ['Living Rooms', 'Bedrooms', 'Kitchens', 'Bathrooms', 'Offices']
-    },
-    { name: 'Designers', href: '#designers' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Blog', href: '#blog' },
-  ];
+      {
+         name: 'Home', to: './Home' 
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
-    setActiveDropdown(null);
-  };
+      },
+       {
+         name: 'About', to: './about' 
+
+      },
+    {
+      name: 'Services',
+      to: '/services',
+      dropdown: ['Interior Design', 'Construction', 'Renovation', 'House Services'],
+    },
+    { name: 'How It Works', to: '/how-it-works' },
+    {
+      name: 'Portfolio',
+      to: '/portfolio',
+      dropdown: ['Living Rooms', 'Bedrooms', 'Kitchens', 'Bathrooms', 'Offices'],
+    },
+    { name: 'Designers', to: '/designers' },
+    { name: 'Pricing', to: '/pricing' },
+    { name: 'Blog', to: '/blog' },
+  ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -56,14 +58,19 @@ const Header = () => {
           <nav className="hidden lg:flex space-x-8">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
-                <button
-                  onClick={() => item.dropdown ? setActiveDropdown(activeDropdown === item.name ? null : item.name) : scrollToSection(item.href)}
+                <Link
+                  to={item.to}
+                  onClick={() =>
+                    item.dropdown
+                      ? setActiveDropdown(activeDropdown === item.name ? null : item.name)
+                      : setActiveDropdown(null)
+                  }
                   className="flex items-center space-x-1 text-amber-800 hover:text-amber-600 font-medium transition-colors duration-200 py-2"
                 >
                   <span>{item.name}</span>
                   {item.dropdown && <ChevronDown className="h-4 w-4" />}
-                </button>
-                
+                </Link>
+
                 {item.dropdown && activeDropdown === item.name && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-amber-100 py-2 z-50">
                     {item.dropdown.map((subItem) => (
@@ -114,13 +121,14 @@ const Header = () => {
           <div className="lg:hidden bg-white border-t border-amber-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  to={item.to}
+                  onClick={() => setIsMenuOpen(false)}
                   className="block w-full text-left px-3 py-2 text-amber-800 hover:text-amber-600 hover:bg-amber-50 rounded-md transition-colors"
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
               <div className="pt-4 border-t border-amber-200 mt-4">
                 <button className="w-full bg-amber-700 text-white px-4 py-2 rounded-md hover:bg-amber-800 transition-colors">

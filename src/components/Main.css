@@ -1,0 +1,23 @@
+
+.maintheme {
+  color: #000;
+}
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.button-gold-border {
+  background-color: white;
+  color: #000;
+  border: 2px solid #b59e6f;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-gold-border:hover {
+  background-color: #b59e6f;
+  color: white;
+}
+
+.border-gold {
+  border-color: #b59e6f;
+}
