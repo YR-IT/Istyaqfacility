@@ -1,13 +1,24 @@
-// import React, { useState, useEffect } from 'react';
-// import LoadingScreen from './components/LoadingScreen';
-
-import Home from '../src/pages/Home';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import About from './components/About';
+import Services from './components/Services';
+import Home from './components/home';
+import Portfolio from './components/Portfolio';
+import HowItWorks from './components/HowItWorks';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Home />
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        {/* Add other routes similarly */}
+      </Routes>
+    </>
   );
 }
 
