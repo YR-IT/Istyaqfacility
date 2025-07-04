@@ -145,6 +145,7 @@ const Designers = () => {
           </div>
         </div>
       </div>
+      
     </section>
   );
 };

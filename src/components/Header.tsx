@@ -34,9 +34,9 @@ const Header = () => {
       to: '/portfolio',
       dropdown: ['Living Rooms', 'Bedrooms', 'Kitchens', 'Bathrooms', 'Offices'],
     },
-    { name: 'Designers', to: '/designers' },
-    { name: 'Pricing', to: '/pricing' },
-    { name: 'Blog', to: '/blog' },
+    { name: 'Designers', to: '/Designers' },
+    { name: 'Pricing', to: '/Pricing' },
+    { name: 'Blog', to: '/Blog' },
   ];
 
   return (
@@ -49,7 +49,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-left text-white text-2xl lg:text-3xl font-bold">
+            <h1 className="font-playfair text-left text-white text-2xl lg:text-3xl font-bold">
               Istyaq Facility
             </h1>
             <p className="text-xs text-white font-medium">Interior & Construction</p>
@@ -66,7 +66,7 @@ const Header = () => {
                       ? setActiveDropdown(activeDropdown === item.name ? null : item.name)
                       : setActiveDropdown(null)
                   }
-                  className="mt-6 flex items-center space-x-1 text-white hover:text-yellow-200 font-medium transition-colors duration-200"
+                  className="font-playfair mt-6 flex items-center space-x-1 text-white hover:text-yellow-200 font-medium transition-colors duration-200"
                 >
                   <span>{item.name}</span>
                   {item.dropdown && <ChevronDown className="h-4 w-4" />}

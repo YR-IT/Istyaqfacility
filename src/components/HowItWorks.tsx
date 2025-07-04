@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pencil, Ruler, Hammer } from 'lucide-react'
 import './index.css';
+import Footer from './Footer';
 const steps = [
   {
     icon: <Pencil className="w-6 h-6" />,
@@ -24,7 +25,8 @@ const HowItWorks = () => {
     <section id="how-it-works" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6 maintheme font-playfair mt-4">How It Works</h2>
+          <h2 className="text-4xl font-bold mb-6 maintheme font-playfair mt-12">
+            How It Works</h2>
           <p className="text-xl maintheme max-w-2xl mx-auto">
             Our simple, three-step process ensures a smooth and satisfying experience from start to finish.
           </p>
@@ -48,11 +50,12 @@ const HowItWorks = () => {
         </div>
 
         <div className="text-center mt-16">
-          <button className="button-gold-border px-8 py-3 rounded-lg font-semibold">
+          <button className="button-gold-border px-8 py-3 rounded-lg font-semibold mb-32">
             Start Your Project Today
           </button>
         </div>
       </div>
+      <Footer/>
     </section>
   );
 };
