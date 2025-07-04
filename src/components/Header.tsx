@@ -28,7 +28,6 @@ const Header = () => {
       to: '/services',
       dropdown: ['Interior Design', 'Construction', 'Renovation', 'House Services'],
     },
-    { name: 'How It Works', to: '/how-it-works' },
     {
       name: 'Portfolio',
       to: '/portfolio',
@@ -66,7 +65,7 @@ const Header = () => {
                       ? setActiveDropdown(activeDropdown === item.name ? null : item.name)
                       : setActiveDropdown(null)
                   }
-                  className="font-playfair mt-6 flex items-center space-x-1 text-white hover:text-yellow-200 font-medium transition-colors duration-200"
+                  className="font-playfair mt-6 flex items-center space-x-1 text-white hover:underline font-medium transition-colors duration-200"
                 >
                   <span>{item.name}</span>
                   {item.dropdown && <ChevronDown className="h-4 w-4" />}

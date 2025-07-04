@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { ExternalLink, Heart, Eye } from 'lucide-react';
-
+import React, { useState, useRef } from 'react';
+import { ExternalLink, Heart, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import './Main.css';
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-  
+  const scrollRef = useRef(null);
+
   const filters = ['All', 'Living Room', 'Bedroom', 'Kitchen', 'Bathroom', 'Office'];
-  
+
   const projects = [
     {
       title: 'Modern 4BHK Duplex - Mohali',
@@ -57,33 +58,40 @@ const Portfolio = () => {
     }
   ];
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = 300;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <section id="portfolio" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
-            Our Work Portfolio
-          </h2>
-          <p className="text-xl text-amber-800 max-w-3xl mx-auto">
-            Explore stunning transformations created by our expert team. 
-            Get inspired for your own space.
+    <section id="portfolio" className="py-24 bg-gradient-to-b from-white via-[#f9f6ef] to-[#f4efe2]">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-bold mb-4">Our Work Portfolio</h2>
+          <p className="text-lg text-black max-w-2xl mx-auto">
+            Explore stunning transformations created by our expert team.
           </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Filters */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-amber-700 text-white shadow-lg'
-                  : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                  ? 'bg-[#b59e6f] text-white shadow-lg scale-105'
+                  : 'bg-[#f2eadd] text-black hover:bg-[#e5d9bf]'
               }`}
             >
               {filter}
@@ -91,72 +99,63 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Portfolio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex space-x-4">
-                    <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-amber-900 hover:bg-amber-100 transition-colors">
-                      <Eye className="h-5 w-5" />
-                    </button>
-                    <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-amber-900 hover:bg-amber-100 transition-colors">
-                      <ExternalLink className="h-5 w-5" />
-                    </button>
+        {/* Scroll Arrows */}
+        <div className="relative">
+          <button onClick={() => scroll('left')} className="absolute -left-2 top-1/2 transform -translate-y-1/2 z-10 bg-[#b59e6f] text-white p-2 rounded-full shadow-md hover:bg-[#a7905c]">
+            <ChevronLeft />
+          </button>
+
+          <div
+            ref={scrollRef}
+            className="flex space-x-4 overflow-x-auto scroll-smooth pb-2 px-1 scrollbar-hide"
+          >
+            {filteredProjects.map((project, index) => (
+              <div
+                key={index}
+                className="min-w-[320px] bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex-shrink-0 overflow-hidden border border-[#e0d4ba]"
+              >
+                <div className="relative">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-56 object-cover rounded-t-3xl"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-[#b59e6f] text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {project.category}
+                    </span>
                   </div>
                 </div>
 
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-amber-900 mb-2 group-hover:text-amber-700 transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-amber-800 mb-4">
-                  {project.description}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4 text-sm text-amber-700">
-                    <div className="flex items-center space-x-1">
-                      <Heart className="h-4 w-4" />
-                      <span>{project.likes}</span>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-[#b59e6f] mb-1">{project.title}</h3>
+                  <p className="text-sm text-gray-700 mb-3 italic">{project.description}</p>
+
+                  <div className="flex items-center justify-between text-sm text-[#b59e6f]">
+                    <div className="flex space-x-4">
+                      <div className="flex items-center space-x-1">
+                        <Heart className="w-4 h-4" />
+                        <span>{project.likes}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Eye className="w-4 h-4" />
+                        <span>{project.views}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <Eye className="h-4 w-4" />
-                      <span>{project.views}</span>
-                    </div>
+                    <button className="hover:text-black font-medium underline decoration-dotted">View</button>
                   </div>
-                  
-                  <button className="text-amber-700 hover:text-amber-800 font-medium text-sm transition-colors">
-                    View Details
-                  </button>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <button onClick={() => scroll('right')} className="absolute -right-2 top-1/2 transform -translate-y-1/2 z-10 bg-[#b59e6f] text-white p-2 rounded-full shadow-md hover:bg-[#a7905c]">
+            <ChevronRight />
+          </button>
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
+          <button className="bg-[#b59e6f] hover:bg-white hover:text-black text-white px-8 py-3 rounded-full font-semibold border border-[#b59e6f] transition-colors duration-300 shadow-md">
             View All Projects
           </button>
         </div>

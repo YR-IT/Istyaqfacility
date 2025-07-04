@@ -1,126 +1,98 @@
 import React from 'react';
 import { Palette, Hammer, Wrench, Home, ArrowRight } from 'lucide-react';
-
+import Footer from './Footer';
+import './Main.css';
 const Services = () => {
   const services = [
     {
       icon: Palette,
       title: 'Interior Design',
-      description: 'Transform your space with elegant, modern, and functional interiors. Modular kitchens, living room design, lighting, and more.',
-      price: 'Starting at ₹50,000',
-      features: ['Custom design concepts', '3D visualizations', 'Material selection', 'Project management'],
-      popular: true
+      description: 'Elegant, modern, and functional interiors. Kitchens, living rooms, lighting, and more.',
+      price: 'From ₹50,000',
+      features: ['3D Visualizations', 'Material Selection', 'Project Management', 'Custom Concepts'],
+      popular: true,
     },
     {
       icon: Hammer,
       title: 'Construction',
-      description: 'Full-scale construction services from layout planning to completion — residential, commercial, and custom builds.',
-      price: 'Starting at ₹1,500/sq ft',
-      features: ['Complete construction', 'Quality materials', 'Timely delivery', 'Expert supervision'],
-      popular: false
+      description: 'From layout to completion — residential, commercial, and custom builds.',
+      price: 'From ₹1,500/sq ft',
+      features: ['Timely Delivery', 'Expert Supervision', 'Quality Materials', 'Full Project Handling'],
     },
     {
       icon: Wrench,
       title: 'Renovation',
-      description: 'Give your old space a fresh new look. Kitchen, bathroom, or full home — we specialize in stylish and affordable makeovers.',
-      price: 'Starting at ₹25,000',
-      features: ['Space optimization', 'Modern upgrades', 'Cost-effective solutions', 'Minimal disruption'],
-      popular: false
+      description: 'Stylish, budget-friendly upgrades for kitchens, bathrooms, and entire homes.',
+      price: 'From ₹25,000',
+      features: ['Modern Upgrades', 'Space Optimization', 'Minimal Disruption', 'Cost-Effective'],
     },
     {
       icon: Home,
       title: 'House Services',
-      description: 'Quick plumbing, electrical, painting, carpentry, and home maintenance services at your doorstep.',
-      price: 'Starting at ₹500',
-      features: ['Emergency repairs', 'Regular maintenance', 'Skilled technicians', 'Quality assurance'],
-      popular: false
-    }
+      description: 'Fast plumbing, electrical, painting, carpentry, and maintenance.',
+      price: 'From ₹500',
+      features: ['Emergency Repairs', 'Skilled Technicians', 'Maintenance Plans', 'Quick Scheduling'],
+    },
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
-            Our Services
-          </h2>
-          <p className="text-xl text-amber-800 max-w-3xl mx-auto">
-            Choose the perfect service for your project. From complete construction to quick repairs, 
-            we have solutions for every need and budget.
-          </p>
-        </div>
+    <section id="services" className="py-24 bg-gradient-to-br from-white to-[#fdfaf3] relative z-10">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <h2 className="text-5xl font-bold text-black mb-4 font-playfair">Our Services</h2>
+        <p className="text-lg text-black max-w-2xl mx-auto mb-16">
+          "Tailored to your dreams. Designed for your lifestyle. Built with precision.""
+        </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 ${
-                service.popular ? 'border-amber-500' : 'border-amber-100'
-              } overflow-hidden group`}
+              className="relative group bg-white/80 backdrop-blur-lg shadow-lg border border-[#b59e6f]/30 hover:border-[#b59e6f] rounded-3xl transition-transform duration-500 hover:-translate-y-2 overflow-visible"
             >
-              {service.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-amber-600 text-white text-center py-2 text-sm font-semibold">
-                  Most Popular
+              {/* Floating Icon */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="w-16 h-16 bg-[#b59e6f] text-white rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-6 h-6" />
                 </div>
-              )}
-              
-              <div className={`p-8 ${service.popular ? 'pt-12' : ''}`}>
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${
-                  service.popular ? 'bg-amber-100' : 'bg-amber-50'
-                }`}>
-                  <service.icon className={`h-8 w-8 ${
-                    service.popular ? 'text-amber-700' : 'text-amber-600'
-                  }`} />
-                </div>
-                
-                <h3 className="text-xl font-bold text-amber-900 mb-3">
-                  {service.title}
-                </h3>
-                
-                <p className="text-amber-800 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-                
-                <div className={`text-2xl font-bold mb-6 ${
-                  service.popular ? 'text-amber-700' : 'text-amber-900'
-                }`}>
-                  {service.price}
-                </div>
-                
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 rounded-full ${
-                        service.popular ? 'bg-amber-600' : 'bg-amber-500'
-                      }`} />
-                      <span className="text-sm text-amber-800">{feature}</span>
+              </div>
+
+              {/* Card Content */}
+              <div className="pt-20 pb-8 px-6 flex flex-col items-center text-center">
+                <h3 className="text-xl font-semibold text-black mb-2">{service.title}</h3>
+
+                <p className="text-sm text-black mb-4">{service.description}</p>
+
+                <div className="text-base font-bold text-black mb-4">{service.price}</div>
+
+                <ul className="text-sm text-black mb-6 text-left space-y-2 w-full">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-start space-x-2">
+                      <span className="w-2 h-2 mt-2 rounded-full bg-[#b59e6f]" />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                
-                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 group ${
-                  service.popular 
-                    ? 'bg-amber-700 hover:bg-amber-800 text-white' 
-                    : 'bg-amber-100 hover:bg-amber-200 text-amber-900'
-                }`}>
-                  <span>Get Started</span>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+
+                <button className="relative group/button inline-flex items-center justify-center py-2 px-5 rounded-full bg-[#b59e6f] text-white font-semibold border border-[#b59e6f] hover:bg-white hover:text-black transition-all duration-300 overflow-hidden">
+                  <span className="relative z-10">Get Started</span>
+                  <ArrowRight className="w-4 h-4 ml-2 transform transition-transform group-hover/button:translate-x-1" />
                 </button>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-amber-800 mb-6">
-            Not sure which service is right for you?
-          </p>
-          <button className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
+        {/* Footer Call-to-Action */}
+        <div className="mt-20">
+          <p className="text-black mb-4">Not sure which service fits you best?</p>
+          <button className="px-8 py-3 bg-[#b59e6f] text-white hover:bg-white hover:text-black border border-[#b59e6f] rounded-full font-semibold transition-colors duration-300 mb-8">
             Get Free Consultation
           </button>
         </div>
       </div>
+      <Footer />
     </section>
+    
   );
 };
 

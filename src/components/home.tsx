@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import AboutNew from './aboutNew';
 import backgroundImg from '../images/background img.jpeg';
 const Home = () => {
   return (
@@ -20,12 +21,14 @@ const Home = () => {
           <h1 className="text-4xl md:text-6xl font-playfair font-semibold leading-tight mb-6">
             Get a Designer <br /> Space You'll Love
           </h1>
+          
           <button className="bg-[#B99E5C] hover:bg-[#a8904d] text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transition">
             START MY TRANSFORMATION
           </button>
         </div>
+        
       </section>
-
+      <AboutNew />
       <Footer />
     </div>
   );

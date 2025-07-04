@@ -1,24 +1,21 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import About from './components/About';
+import AboutNew from './components/aboutNew';
 import Services from './components/Services';
 import Home from './components/home';
 import Portfolio from './components/Portfolio';
-import HowItWorks from './components/HowItWorks';
 import Designers from './components/Designers';
 import Pricing from './components/Pricing';
 import Blog from './components/Blog';
-
 function App() {
   return (
     <>
       <Header />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<AboutNew />} />
         <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/how-it-works" element={<HowItWorks />} />
          <Route path="/Designers" element={<Designers />} />
           <Route path="/Pricing" element={<Pricing />} />
            <Route path="/Blog" element={<Blog />} />
