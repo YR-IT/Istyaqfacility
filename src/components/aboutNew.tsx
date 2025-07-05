@@ -9,7 +9,6 @@ interface ValueItem {
   title: string;
   description: string;
 }
-
 interface StepItem {
   icon: JSX.Element;
   title: string;
