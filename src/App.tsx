@@ -6,9 +6,8 @@ import Home from './components/home';
 import Portfolio from './components/Portfolio';
 import Designers from './components/Designers';
 import Pricing from './components/Pricing';
-import Contact from './components/Contact'; // ✅ Corrected import
-// Removed: import { Contact } from 'lucide-react';
-
+import Contact from './components/Contact'; 
+import Footer from './components/Footer';
 function App() {
   return (
     <>
@@ -21,8 +20,9 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/designers" element={<Designers />} />
         <Route path="/pricing" element={<Pricing />} />
-        <Route path="/contact" element={<Contact />} /> {/* ✅ Fixed route */}
+        <Route path="/contact" element={<Contact />} /> 
       </Routes>
+      <Footer />
     </>
   );
 }

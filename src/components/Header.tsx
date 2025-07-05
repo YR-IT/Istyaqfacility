@@ -17,7 +17,7 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', to: '/home' 
+    { name: 'Home', to: '/' 
 
     },
     { 
