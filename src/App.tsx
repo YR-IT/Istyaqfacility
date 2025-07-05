@@ -6,21 +6,22 @@ import Home from './components/home';
 import Portfolio from './components/Portfolio';
 import Designers from './components/Designers';
 import Pricing from './components/Pricing';
-import Blog from './components/Blog';
+import Contact from './components/Contact'; // ✅ Corrected import
+// Removed: import { Contact } from 'lucide-react';
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} /> 
+        <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<AboutNew />} />
         <Route path="/services" element={<Services />} />
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/Designers" element={<Designers />} />
-        <Route path="/Pricing" element={<Pricing />} />
-        <Route path="/Blog" element={<Blog />} />
+        <Route path="/designers" element={<Designers />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/contact" element={<Contact />} /> {/* ✅ Fixed route */}
       </Routes>
     </>
   );

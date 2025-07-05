@@ -49,81 +49,85 @@ const Designers = () => {
     }
   ];
 
+  const palette = {
+    background: 'bg-[#f4efe2]',
+    card: 'bg-white',
+    accent: 'text-[#b59e6f]',
+    button: 'bg-[#b59e6f] hover:bg-[#a88c5a]',
+    badge: 'bg-[#e5d9bf] text-[#3d2f1f]',
+    text: 'text-gray-800'
+  };
+
   return (
-    <section id="designers" className="py-20 bg-amber-50">
+    <section id="designers" className={`py-20 ${palette.background}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-amber-900 mb-6">
-            Meet Our Expert Team
-          </h2>
-          <p className="text-xl text-amber-800 max-w-3xl mx-auto">
-            Work with experienced professionals who understand your vision 
-            and bring years of expertise to every project.
+          <h2 className="text-5xl font-bold text-[#3d2f1f] mb-4 font-playfair">Our Design Experts</h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Masters of timeless elegance. Meet the visionaries who transform ideas into beautiful realities.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Grid of Designers */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {designers.map((designer, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
+              className={`${palette.card} rounded-2xl border border-[#e0d4ba] shadow-xl hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300 group`}
             >
+              {/* Image */}
               <div className="relative">
                 <img
                   src={designer.image}
                   alt={designer.name}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-64 object-cover rounded-t-2xl group-hover:scale-105 transition duration-300"
                 />
-                
+
+                {/* Rating Badge */}
+                <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded-lg shadow flex items-center space-x-1">
+                  <Star className="h-4 w-4 text-yellow-500 fill-yellow-400" />
+                  <span className="text-sm font-semibold text-[#3d2f1f]">{designer.rating}</span>
+                </div>
+
                 {/* Badges */}
-                <div className="absolute top-4 left-4 space-y-2">
+                <div className="absolute top-4 left-4 space-y-1">
                   {designer.badges.map((badge, badgeIndex) => (
                     <span
                       key={badgeIndex}
-                      className="block bg-amber-700 text-white px-2 py-1 rounded-full text-xs font-medium"
+                      className={`block ${palette.badge} px-2 py-1 rounded-full text-xs font-semibold shadow`}
                     >
                       {badge}
                     </span>
                   ))}
                 </div>
-
-                {/* Rating */}
-                <div className="absolute top-4 right-4 bg-white rounded-lg px-2 py-1 flex items-center space-x-1">
-                  <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                  <span className="text-sm font-semibold text-amber-900">{designer.rating}</span>
-                </div>
               </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-amber-900 mb-1">
-                  {designer.name}
-                </h3>
-                
-                <p className="text-amber-700 font-medium mb-2">
-                  {designer.specialty}
-                </p>
-                
-                <div className="flex items-center text-amber-800 text-sm mb-3">
+
+              {/* Details */}
+              <div className="p-5">
+                <h3 className={`text-xl font-bold ${palette.accent} mb-1`}>{designer.name}</h3>
+                <p className="text-sm text-gray-600 font-medium mb-1">{designer.specialty}</p>
+
+                <div className="flex items-center text-sm text-gray-700 mb-2">
                   <MapPin className="h-4 w-4 mr-1" />
                   <span>{designer.location}</span>
                 </div>
-                
-                <p className="text-amber-800 text-sm mb-4 leading-relaxed">
+
+                <p className="text-sm text-gray-700 italic mb-4 leading-relaxed">
                   {designer.bio}
                 </p>
-                
-                <div className="flex items-center justify-between text-sm text-amber-700 mb-4">
+
+                <div className="flex justify-between items-center text-sm text-gray-600 mb-4">
                   <div className="flex items-center space-x-1">
-                    <Award className="h-4 w-4" />
+                    <Award className="w-4 h-4" />
                     <span>{designer.projects} projects</span>
                   </div>
-                  <div>
-                    {designer.reviews} reviews
-                  </div>
+                  <span>{designer.reviews} reviews</span>
                 </div>
-                
-                <button className="w-full bg-amber-700 hover:bg-amber-800 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center space-x-2">
-                  <MessageCircle className="h-4 w-4" />
+
+                {/* Button */}
+                <button className={`w-full py-2 rounded-full font-medium text-white ${palette.button} transition duration-300 flex items-center justify-center space-x-2`}>
+                  <MessageCircle className="w-4 h-4" />
                   <span>Contact Expert</span>
                 </button>
               </div>
@@ -131,21 +135,19 @@ const Designers = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <div className="bg-amber-100 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-amber-900 mb-4">
-              Want to Join Our Expert Team?
-            </h3>
-            <p className="text-amber-800 mb-6">
-              We're always looking for talented professionals to join our team and help clients create beautiful spaces.
+        {/* Join CTA */}
+        <div className="text-center mt-20">
+          <div className="bg-[#f2eadd] rounded-2xl p-10 max-w-4xl mx-auto shadow-md">
+            <h3 className="text-2xl font-bold text-[#3d2f1f] mb-4">Want to Join Our Creative Team?</h3>
+            <p className="text-gray-700 mb-6">
+              We’re always looking for passionate professionals who believe in shaping timeless design experiences.
             </p>
-            <button className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
+            <button className="px-8 py-3 bg-[#b59e6f] hover:bg-[#a88c5a] text-white rounded-full font-semibold transition duration-300">
               Join Our Team
             </button>
           </div>
         </div>
       </div>
-      
     </section>
   );
 };

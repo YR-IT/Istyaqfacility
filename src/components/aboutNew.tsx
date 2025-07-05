@@ -63,7 +63,7 @@ const AboutAndHow: React.FC = () => {
       <section id="about" className="mt-8 py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className=" text-3xl font-playfair md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 hover:underline">
+            <h2 className=" text-3xl font-playfair md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
               About Istyaq Facility
             </h2>
             <div className="w-24 h-1 mx-auto mb-8"></div>
@@ -71,7 +71,7 @@ const AboutAndHow: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-8">
             <div className="space-y-6">
-              <h3 className="underline font-playfair text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+              <h3 className=" font-playfair text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                " Building Dreams, Crafting Spaces"
               </h3>
               <p className="text-base text-gray-600 leading-relaxed">
