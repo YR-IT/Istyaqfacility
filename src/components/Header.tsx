@@ -17,7 +17,7 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', to: '/home' 
+    { name: 'Home', to: '/' 
 
     },
     { 
@@ -26,12 +26,12 @@ const Header = () => {
     {
       name: 'Services',
       to: '/services',
-      dropdown: ['Interior Design', 'Construction', 'Renovation', 'House Services'],
+      // dropdown: ['Interior Design', 'Construction', 'Renovation', 'House Services'],
     },
     {
       name: 'Portfolio',
       to: '/portfolio',
-      dropdown: ['Living Rooms', 'Bedrooms', 'Kitchens', 'Bathrooms', 'Offices'],
+      // dropdown: ['Living Rooms', 'Bedrooms', 'Kitchens', 'Bathrooms', 'Offices'],
     },
     { name: 'Designers', to: '/Designers' },
     { name: 'Pricing', to: '/Pricing' },
