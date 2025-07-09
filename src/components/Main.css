@@ -9,14 +9,14 @@
 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .button-gold-border {
-  background-color: white;
-  color: #000;
+  background-color: #b59e6f;
+  color: white;
   border: 2px solid #b59e6f;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .button-gold-border:hover {
-  background-color: #b59e6f;
+  background-color: #8e6411;
   color: white;
 }
 
@@ -24,7 +24,6 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border-color: #b59e6f;
 }
 /* Footer.css */
-
 .footer {
   background-color: #b59e6f;
   color: white;

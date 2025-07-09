@@ -27,7 +27,7 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gradient-to-b from-white via-[#f9f6ef] to-[#f4efe2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-black mb-4 font-playfair mt-8">Let's Connect</h2>
+          <h2 className="text-5xl font-bold text-black mb-4 font-playfair mt-8 relative inline-block after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Let's Connect</h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto ParaFont">
             Ready to transform your space? We're just a message away.
           </p>
@@ -36,8 +36,8 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-[#3d2f1f] mb-6">Get In Touch</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <h3 className="text-2xl font-bold text-[#3d2f1f] mb-2">Get In Touch</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
                 We'd love to hear about your project. Contact us for a free consultation
                 and let's discuss how we can bring your vision to life.
               </p>
@@ -45,8 +45,8 @@ const Contact = () => {
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-6 w-6 text-[#b59e6f]" />
+                <div className="w-12 h-10 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-4 w-6 text-[#b59e6f]" />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-800 mb-2">Phone</h4>

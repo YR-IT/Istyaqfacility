@@ -53,7 +53,7 @@ const Portfolio = () => {
       <div className="max-w-6xl mx-auto px-2 sm:px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-800 mb-4 font-playfair mt-8">OUR FINEST</h2>
+          <h2 className="text-5xl font-bold text-gray-800 mb-4 font-playfair mt-8 relative inline-block after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 mt-8">OUR FINEST</h2>
           <p className="text-lg text-black ParaFont">"We believe true design lies in the details each project shaped with care, purpose, and permanence."</p>
         </div>
 

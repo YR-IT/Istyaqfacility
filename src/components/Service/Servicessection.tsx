@@ -1,7 +1,7 @@
 import React from 'react';
 import { Palette, Hammer, Wrench, Home, ArrowRight } from 'lucide-react';
 import ServiceCard from './Servicecard';
-// import './Main.css';
+import '../Main.css';
 
 const ServicesSection = () => {
   const services = [
@@ -35,7 +35,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-24 bg-gradient-to-br from-white to-[#fdfaf3] relative z-10">
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-5xl font-bold text-black mb-4 font-playfair">Our Services</h2>
+        <h2 className="text-5xl font-bold text-black mb-4 font-playfair mt-8 relative inline-block after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">Our Services</h2>
         <p className="text-lg text-black max-w-2xl mx-auto mb-16">
           "Tailored to your dreams. Designed for your lifestyle. Built with precision."
         </p>
@@ -49,7 +49,7 @@ const ServicesSection = () => {
         {/* CTA */}
         <div className="mt-20">
           <p className="text-black mb-4">Not sure which service fits you best?</p>
-          <button className="px-8 py-3 bg-[#b59e6f] text-white hover:bg-white hover:text-black border border-[#b59e6f] rounded-full font-semibold transition-colors duration-300 mb-8">
+          <button className="px-8 py-3 bg-[#b59e6f] text-white border-[#b59e6f] rounded-full font-semibold transition-colors duration-300 mb-8 button-gold-border button-gold-border:hover border-gold">
             Get Free Consultation
           </button>
         </div>

@@ -36,16 +36,16 @@ const AboutSection: React.FC = () => {
     <section id="about" className="mt-8 py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className=" text-3xl font-playfair md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 hover:underline">
-            About Istyaq Facility
-          </h2>
+         <h2 className="text-3xl font-playfair md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
+              About Istyaq Facility
+             </h2>
           <div className="w-24 h-1 mx-auto mb-8"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-8">
           <div className="space-y-6">
-            <h3 className="underline font-playfair text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-              " Building Dreams, Crafting Spaces"
+            <h3 className=" font-playfair text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+              "Building Dreams,Crafting Spaces"
             </h3>
             <p className="text-base text-gray-600 leading-relaxed">
               Istyaq Facility Interior & Constructs is a professional construction & interior design

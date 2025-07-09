@@ -1,6 +1,6 @@
 // pages/PricingPage.tsx
 import React from 'react';
-import PricingCard from '../components/Pricing/PricingCard';
+import PricingCard from '../pages/PricingCard';
 import AddOnCard from '../components/Pricing/AddOnCard';
 import FAQBlock from '../components/Pricing/FAQBlock';
 

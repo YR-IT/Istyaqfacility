@@ -63,16 +63,16 @@ const AboutAndHow: React.FC = () => {
       <section id="about" className="mt-8 py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className=" text-3xl font-playfair md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+           <h2 className="text-3xl font-playfair md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 mt-8">
               About Istyaq Facility
-            </h2>
+             </h2>
             <div className="w-24 h-1 mx-auto mb-8"></div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-8">
             <div className="space-y-6">
               <h3 className=" font-playfair text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-               " Building Dreams, Crafting Spaces"
+               "Building Dreams, Crafting Spaces"
               </h3>
               <p className="text-base text-gray-600 leading-relaxed">
                 Istyaq Facility Interior & Constructs is a professional construction & interior design
@@ -112,11 +112,14 @@ const AboutAndHow: React.FC = () => {
 
       {/* HOW IT WORKS SECTION */}
       <section id="how-it-works" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-0">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 maintheme font-playfair mt-0 hover:underline">
-              How It Works
-            </h2>
+            <h2 className="text-4xl font-bold mb-6   maintheme font-playfair relative inline-block
+           after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] 
+           after:w-full after:bg-black after:scale-x-0 hover:after:scale-x-100 
+           after:transition-transform after:duration-300 after:origin-left">
+           How It Works
+          </h2>
             <p className="text-xl maintheme max-w-2xl mx-auto">
               Our simple, three-step process ensures a smooth and satisfying experience from start to finish.
             </p>
@@ -124,20 +127,21 @@ const AboutAndHow: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-12">
             {steps.map((step, index) => (
-              <div
-                key={index}
-                className="bg-white border border-gold rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
-              >
-                <div className="p-8 text-center">
-                  <div className="w-12 h-12 border border-gold text-black rounded-xl flex items-center justify-center mb-4 group-hover:bg-amber-200 transition-colors duration-300 mx-auto">
-                    {step.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold maintheme mb-2">{step.title}</h3>
-                  <p className="maintheme">{step.description}</p>
+             <div
+              key={index}
+              className="bg-white border border-gold rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
+            >
+              <div className="p-8 text-center">
+                <div className="w-12 h-12 border border-gold rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 mx-auto button-gold-border button-gold-border:hover border-gold">
+                  {step.icon}
                 </div>
+                <h3 className="text-xl font-semibold maintheme mb-2">{step.title}</h3>
+                <p className="maintheme">{step.description}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+
 
           <div className="text-center mt-16">
             <button className="button-gold-border px-8 py-3 rounded-lg font-semibold mb-32">
