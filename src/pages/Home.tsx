@@ -1,34 +1,31 @@
-import React from 'react';
-// import Header from './Header';
-// import Footer from './Footer';
+
 import AboutNew from '../pages/About';
-import backgroundImg from '../images/background img.jpeg';
+import backgroundVideo from '../assests/7578554-uhd_3840_2160_30fps.mp4';
+
 const Home = () => {
   return (
     <div className="relative">
-      {/* <Header /> */}
-
-      {/* Hero Section */}
-      <section
-        className="h-screen bg-cover bg-center flex items-center justify-center text-white relative"
-        style={{
-          backgroundImage: `url(${backgroundImg})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-
-        <div className="z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-playfair font-semibold leading-tight mb-6">
+      <section className="h-screen w-full relative flex items-center justify-center text-white overflow-hidden">
+       <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover z-0">
+            <source src={backgroundVideo} type="video/mp4" />
+            </video>
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="relative z-20 text-center px-4">
+          <h1 className="text-4xl md:text-6xl font-playfair font-semibold leading-tight mb-6 ">
             Get a Designer <br /> Space You'll Love
           </h1>
-          
-          <button className="bg-[#B99E5C] hover:bg-[#a8904d] text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transition">
-            START MY TRANSFORMATION
+          <button className="bg-[#0e345a] hover:bg-[#0b2647] text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transition mr-4">
+            VIEW OUR PROJECTS
+          </button>
+          <button className="bg-[#0e345a] hover:bg-[#0b2647] text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transition">
+            GET IN TOUCH
           </button>
         </div>
-        
       </section>
+
+      {/* About Section */}
       <AboutNew />
+
       {/* <Footer /> */}
     </div>
   );

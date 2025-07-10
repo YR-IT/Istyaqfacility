@@ -1,12 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, User, Search, Heart, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,92 +15,43 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', to: '/' 
-
-    },
-    { 
-      name: 'About', to:'/about'
-     },
-    {
-      name: 'Services',
-      to: '/services',
-    },
-    {
-      name: 'Portfolio',
-      to: '/portfolio',
-    },
-
-    { name: 'Contact', to: '/Contact' },
+    { name: 'Home', to: '/' },
+    { name: 'About', to: '/about' },
+    { name: 'Services', to: '/services' },
+    { name: 'Portfolio', to: '/portfolio' },
+    { name: 'Contact', to: '/contact' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'shadow-lg' : ''
-      } bg-[#b59e6f]`}
-    >
+        isScrolled ? 'shadow-lg bg-[#5f6981]' : 'bg-transparent'
+      }`}
+      >
       <div className="w-full px-6 lg:px-10">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="font-playfair text-left text-white text-2xl lg:text-3xl font-bold">
+            <h1 className="font-playfair text-white text-2xl lg:text-3xl font-bold">
               Istyaq Facility
             </h1>
-            <p className="text-xs text-white font-medium">Interior & Construction</p>
+            <p className="text-xs text-white font-medium">
+              Interior & Construction
+            </p>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8">
-            {navItems.map((item) => (
-              <div key={item.name} className="relative group">
-                <Link
-                  to={item.to}
-                  onClick={() =>
-                    item.dropdown
-                      ? setActiveDropdown(activeDropdown === item.name ? null : item.name)
-                      : setActiveDropdown(null)
-                  }
-                  className="font-playfair mt-6 flex items-center space-x-1 text-white hover:underline font-medium transition-colors duration-200"
-                >
-                  <span>{item.name}</span>
-                  {item.dropdown && <ChevronDown className="h-4 w-4" />}
-                </Link>
-
-                {item.dropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-xl border border-amber-100 py-2 z-50">
-                    {item.dropdown.map((subItem) => (
-                      <button
-                        key={subItem}
-                        className="block w-full text-left px-4 py-2 hover:text-amber-600 hover:bg-amber-50 transition-colors"
-                      >
-                        {subItem}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-
-          {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4 text-white">
-            <button className="p-2 hover:text-yellow-200 transition-colors">
-              <Search className="h-5 w-5" />
-            </button>
-            <button className="p-2 hover:text-yellow-200 transition-colors">
-              <Heart className="h-5 w-5" />
-            </button>
-            <button className="p-2 hover:text-yellow-200 transition-colors">
-              <ShoppingBag className="h-5 w-5" />
-            </button>
-            <button className="flex items-center space-x-2 hover:text-yellow-200 transition-colors">
-              <User className="h-5 w-5" />
-              <span className="text-sm font-medium">Sign In</span>
-            </button>
-            <button className="bg-white text-[#b59e6f] hover:bg-yellow-100 px-6 py-2 rounded-lg font-medium transition">
-              Get Started
-            </button>
-          </div>
+          <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 space-x-12">
+          {navItems.map((item) => (
+          <Link
+          key={item.name}
+          to={item.to}
+          className="font-playfair text-white text-lg lg:text-xl font-semibold hover:underline transition duration-200"
+          >
+         {item.name}
+         </Link>
+         ))}
+        </nav>
 
           {/* Mobile Menu Button */}
           <button
