@@ -43,7 +43,7 @@ const HowItWorksSection: React.FC = () => {
               className="bg-white border border-gold rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
             >
               <div className="p-8 text-center">
-                <div className="w-12 h-12 border border-gold rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 mx-auto button-gold-border button-gold-border:hover border-gold">
+                <div className="w-12 h-12 border border-gold rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 mx-auto bg-[#0e345a] hover:bg-[#0b2647] text-white">
                   {step.icon}
                 </div>
                 <h3 className="text-xl font-semibold maintheme mb-2">{step.title}</h3>
@@ -54,7 +54,7 @@ const HowItWorksSection: React.FC = () => {
         </div>
 
         <div className="text-center mt-16">
-          <button className="button-gold-border px-8 py-3 rounded-lg font-semibold mb-32">
+          <button className="bg-[#0e345a] hover:bg-[#0b2647] text-white px-8 py-3 rounded-lg font-semibold mb-32">
             Start Your Project Today
           </button>
         </div>

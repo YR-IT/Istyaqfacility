@@ -8,24 +8,9 @@
 .ParaFont{
 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.button-gold-border {
-  background-color: #b59e6f;
-  color: white;
-  border: 2px solid #b59e6f;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.button-gold-border:hover {
-  background-color: #8e6411;
-  color: white;
-}
-
-.border-gold {
-  border-color: #b59e6f;
-}
 /* Footer.css */
 .footer {
-  background-color: #b59e6f;
+  background-color: #0e345a;
   color: white;
   padding: 4rem 1rem;
 }
@@ -63,7 +48,7 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   width: 40px;
   height: 40px;
   background-color: white;
-  color: #b59e6f;
+  color: #0e345a;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -74,11 +59,11 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 .footer .social-icons a:hover {
   background-color: #eee;
-  color: #8d6b3f;
+  color:#0b2647;
 }
 
 .newsletter {
-  background-color: #a88a5b;
+  background-color: #0e345a;
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
@@ -98,7 +83,7 @@ font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border-radius: 0.5rem;
   border: none;
   background-color: white;
-  color: #b59e6f;
+  color: #0e345a;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;

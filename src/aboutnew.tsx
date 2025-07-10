@@ -11,9 +11,8 @@ import {
 } from 'lucide-react';
 import './components/Main.css';
 import './components/index.css';
-import Footer from './components/Footer';
 import background from './assests/Untitled video - Made with Clipchamp.mp4';
-
+import './components/Main.css'
 interface ValueItem {
   icon: LucideIcon;
   title: string;
@@ -69,7 +68,7 @@ const AboutAndHow: React.FC = () => {
 
   return (
     <>
-      {/* FULL-WIDTH VIDEO SECTION */}
+    
       <section className="w-full relative h-[600px] lg:h-[730px] overflow-hidden">
         <video
           autoPlay
@@ -88,14 +87,14 @@ const AboutAndHow: React.FC = () => {
           <h3 className="text-2xl lg:text-4xl font-playfair font-bold mb-4">
             See Us in Action
           </h3>
-          <p className="text-lg max-w-3xl leading-relaxed">
+          <p className="text-lg max-w-5xl leading-relaxed ParaFont">
             Discover how our spaces come to life through creativity, dedication, and design brilliance.
           </p>
         </div>
       </section>
 
       {/* ABOUT SECTION */}
-      <section id="about" className="mt-8 py-20 bg-gray-50">
+      <section id="about" className="mt-8 pt-20 pb-10 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-playfair md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 mt-8">
@@ -147,7 +146,7 @@ const AboutAndHow: React.FC = () => {
 
       {/* HOW IT WORKS SECTION */}
       <section id="how-it-works" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
               className="text-4xl font-bold mb-6 font-playfair relative inline-block
@@ -190,7 +189,7 @@ const AboutAndHow: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <Footer />
+      
     </>
   );
 };

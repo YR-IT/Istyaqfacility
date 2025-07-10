@@ -72,7 +72,7 @@ const AboutSection: React.FC = () => {
               key={index}
               className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center group"
             >
-              <div className="button-gold-border w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+              <div className="bg-[#0e345a] hover:bg-[#0b2647] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors duration-300 text-white">
                 <value.icon className="h-8 w-8 transition-colors duration-300" />
               </div>
               <h4 className="text-xl font-bold text-gray-800 mb-4">{value.title}</h4>
