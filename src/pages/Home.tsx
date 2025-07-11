@@ -1,6 +1,7 @@
-
+import React from 'react';
+import {Link} from 'react-router-dom';
 import AboutNew from '../pages/About';
-import backgroundVideo from '../assests/7578554-uhd_3840_2160_30fps.mp4';
+import backgroundVideo from '/assests/7578554-uhd_3840_2160_30fps.mp4';
 
 const Home = () => {
   return (
@@ -14,12 +15,14 @@ const Home = () => {
           <h1 className="text-4xl md:text-6xl font-playfair font-semibold leading-tight mb-6 ">
             Get a Designer <br /> Space You'll Love
           </h1>
+          <Link to ="/Portfolio">
           <button className="bg-[#0e345a] hover:bg-[#0b2647] text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transition mr-4">
             VIEW OUR PROJECTS
-          </button>
+          </button></Link>
+          <Link to ="/contact">
           <button className="bg-[#0e345a] hover:bg-[#0b2647] text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transition">
             GET IN TOUCH
-          </button>
+          </button></Link>
         </div>
       </section>
 

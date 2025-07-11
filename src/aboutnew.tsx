@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import './components/Main.css';
 import './components/index.css';
-import background from './assests/Untitled video - Made with Clipchamp.mp4';
+import background from '../assests/Untitled video - Made with Clipchamp.mp4';
 import './components/Main.css'
 interface ValueItem {
   icon: LucideIcon;
@@ -84,11 +84,11 @@ const AboutAndHow: React.FC = () => {
         <div className="absolute inset-0 bg-black/40 z-10" />
 
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
-          <h3 className="text-2xl lg:text-4xl font-playfair font-bold mb-4">
+          <h3 className="text-6xl font-playfair font-bold mb-4">
             See Us in Action
           </h3>
-          <p className="text-lg max-w-5xl leading-relaxed ParaFont">
-            Discover how our spaces come to life through creativity, dedication, and design brilliance.
+          <p className="text-3xl max-w-5xl leading-relaxed font-playfair">
+            Turning ideas into beautiful realities
           </p>
         </div>
       </section>
@@ -104,10 +104,10 @@ const AboutAndHow: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-8">
             <div className="space-y-6">
-              <h3 className="font-playfair text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+              <h3 className="font-playfair text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
                 "Building Dreams, Crafting Spaces"
               </h3>
-              <p className="text-base text-gray-600 leading-relaxed">
+              <p className="text-base text-gray-600 leading-relaxed text-center">
                 Istyaq Facility Interior & Constructs is a professional construction & interior
                 design company offering end-to-end solutions for residential and commercial spaces.
                 We transform your vision into reality with our expertise, dedication, and attention

@@ -28,7 +28,7 @@ const Header = () => {
         isScrolled ? 'shadow-lg bg-[#0e345a]' : 'bg-transparent'
       }`}
       >
-      <div className="w-full px-6 lg:px-10">
+      <div className="w-full px-6 lg:px-10 h-16">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">

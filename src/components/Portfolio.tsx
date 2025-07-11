@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heart, Eye } from 'lucide-react';
 import './Main.css';
 import Footer from './Footer';
