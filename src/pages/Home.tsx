@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import AboutNew from '../pages/About';
-import backgroundVideo from '/assests/7578554-uhd_3840_2160_30fps.mp4';
+import AboutNew from '../pages/about';
+import backgroundVideo from '../assests/7578554-uhd_3840_2160_30fps.mp4';
 
 const Home = () => {
   return (

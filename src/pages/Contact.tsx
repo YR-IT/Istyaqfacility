@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, MessageCircle, Send, Clock, Facebook, Instagram, Linkedin } from 'lucide-react';
-import '../components/Main.css';
+import '../components/stylesheet/Main.css';
 import Footer from '../components/Footer';
 const Contact = () => {
   const [formData, setFormData] = useState({

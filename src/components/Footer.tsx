@@ -1,5 +1,5 @@
 import React from 'react';
-import './Main.css';
+import './stylesheet/Main.css';
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const Footer = () => {
@@ -8,8 +8,6 @@ const Footer = () => {
     { name: 'Services', href: '#services' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Our Team', href: '#designers' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Blog', href: '#blog' },
   ];
 
   const services = [
@@ -36,7 +34,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer bg-slate-800">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
@@ -111,18 +109,6 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Newsletter */}
-        <div className="newsletter">
-          <h4 className="font-playfair text-2xl font-bold mb-3">Stay Updated</h4>
-          <p className="mb-4 font-playfair">
-            Get the latest design trends, construction tips, and exclusive offers delivered to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <input type="email" placeholder="Enter your email" />
-            <button>Subscribe</button>
           </div>
         </div>
 

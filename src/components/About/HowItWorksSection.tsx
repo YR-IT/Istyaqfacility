@@ -1,7 +1,7 @@
 // components/HowItWorksSection.tsx
 import React from 'react';
 import { Pencil, Ruler, Hammer } from 'lucide-react';
-import '../Main.css';
+import '../stylesheet/Main.css';
 const steps = [
   {
     icon: <Pencil className="w-6 h-6" />,
