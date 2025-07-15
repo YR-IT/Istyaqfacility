@@ -30,19 +30,19 @@ const Contact = () => {
   return (
     <>
       {/* Section 1: Header Video */}
-      <section className="relative w-full h-[100vh] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden">
         <video
           autoPlay
           muted
           loop
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover max-h-[100vh] z-0"
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
         <div className="relative z-10 px-4">
-          <h2 className="text-white text-5xl font-bold mb-6 font-playfair">Let's Connect</h2>
-          <p className="text-white text-2xl max-w-2xl mx-auto font-playfair">
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6 font-playfair">Let's Connect</h2>
+          <p className="text-white text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto font-playfair">
             Ready to transform your space? We're just a message away.
           </p>
         </div>
@@ -66,12 +66,12 @@ const Contact = () => {
               <div className="space-y-6">
                 {/* Phone */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-10 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-4 w-6 text-[#b59e6f]" />
+                  <div className="w-10 h-10 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-4 w-5 text-[#b59e6f]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">Phone</h4>
-                    <a href="tel:+919646703020" className="text-gray-600 hover:text-[#b59e6f]">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-1">Phone</h4>
+                    <a href="tel:+919646703020" className="text-gray-600 hover:text-[#b59e6f] text-sm sm:text-base">
                       +91 9646703020
                     </a>
                   </div>
@@ -79,12 +79,12 @@ const Contact = () => {
 
                 {/* Email */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-[#b59e6f]" />
+                  <div className="w-10 h-10 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-5 w-5 text-[#b59e6f]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">Email</h4>
-                    <a href="mailto:istyaqfacility@gmail.com" className="text-gray-600 hover:text-[#b59e6f]">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-1">Email</h4>
+                    <a href="mailto:istyaqfacility@gmail.com" className="text-gray-600 hover:text-[#b59e6f] text-sm sm:text-base">
                       istyaqfacility@gmail.com
                     </a>
                   </div>
@@ -92,12 +92,12 @@ const Contact = () => {
 
                 {/* Address */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-[#b59e6f]" />
+                  <div className="w-10 h-10 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-5 w-5 text-[#b59e6f]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">Address</h4>
-                    <p className="text-gray-600">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-1">Address</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       709/2 B.D.C Colony, Sector 26<br />
                       Chandigarh, 160026
                     </p>
@@ -106,12 +106,12 @@ const Contact = () => {
 
                 {/* Business Hours */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-6 w-6 text-[#b59e6f]" />
+                  <div className="w-10 h-10 bg-[#f2eadd] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-5 w-5 text-[#b59e6f]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-800 mb-2">Business Hours</h4>
-                    <p className="text-gray-600">
+                    <h4 className="text-lg font-semibold text-gray-800 mb-1">Business Hours</h4>
+                    <p className="text-gray-600 text-sm sm:text-base">
                       Mon - Sat: 9:00 AM - 7:00 PM<br />
                       Sunday: 10:00 AM - 5:00 PM
                     </p>
@@ -120,7 +120,7 @@ const Contact = () => {
               </div>
 
               {/* Social + WhatsApp */}
-              <div className="pt-6 flex space-x-4 items-center">
+              <div className="pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 sm:space-x-6">
                 <a
                   href="https://wa.me/919646703020"
                   target="_blank"
@@ -131,7 +131,7 @@ const Contact = () => {
                   <span>Chat on WhatsApp</span>
                 </a>
 
-                <div className="flex space-x-4 ml-4">
+                <div className="flex space-x-4">
                   <a href="https://facebook.com" target="_blank" className="text-[#b59e6f] hover:text-[#3d2f1f]">
                     <Facebook className="w-6 h-6" />
                   </a>
@@ -146,21 +146,21 @@ const Contact = () => {
             </div>
 
             {/* Right: Form */}
-            <div className="bg-white p-8 rounded-xl shadow-md">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md">
               <h3 className="text-2xl font-bold text-black mb-6 font-playfair">Send us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <input type="text" name="name" required value={formData.name} onChange={handleChange}
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#b59e6f]" />
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-[#b59e6f]" />
                 <input type="email" name="email" required value={formData.email} onChange={handleChange}
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#b59e6f]" />
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-[#b59e6f]" />
                 <input type="tel" name="phone" required value={formData.phone} onChange={handleChange}
                   placeholder="Phone Number"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#b59e6f]" />
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-[#b59e6f]" />
                 <textarea name="message" required rows={5} value={formData.message} onChange={handleChange}
                   placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#b59e6f] resize-none" />
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-[#b59e6f] resize-none" />
                 <button type="submit"
                   className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2">
                   <Send className="h-5 w-5" />
@@ -187,7 +187,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </section>
     </>
   );

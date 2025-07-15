@@ -44,55 +44,61 @@ const Portfolio = () => {
 
   return (
     <>
-     
-      <section className="relative w-full h-[100vh] flex items-center justify-center text-center overflow-hidden">
+      {/* Hero Section with Video Background */}
+      <section className="relative w-full min-h-[80vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden">
         <video
           autoPlay
           muted
           loop
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover max-h-[100vh] z-0"
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
 
         <div className="relative z-10 px-4">
-          <h2 className="text-white text-5xl font-bold mb-6 font-playfair">OUR FINEST</h2>
-          <p className="text-white text-2xl max-w-3xl mx-auto font-playfair">
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6 font-playfair">
+            OUR FINEST
+          </h2>
+          <p className="text-white text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto font-playfair">
             "We believe true design lies in the details each project shaped with care, purpose, and permanence."
           </p>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      {/* Projects Section */}
+      <section className="py-1 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {projects.map((project, index) => (
             <div
               key={index}
               className={`flex flex-col md:flex-row ${
                 index % 2 !== 0 ? 'md:flex-row-reverse' : ''
-              } items-center mb-20 gap-6 md:gap-12`}
+              } items-center mb-20 gap-10`}
             >
-             <div className="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-lg group">
+              {/* Image */}
+              <div className="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-lg group">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-64 sm:h-80 md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
               {/* Details */}
               <div className="md:w-1/2 w-full">
-                <span className="inline-block text-base bg-gray-200 text-gray-800 px-3 py-1 rounded-full mb-3">
+                <span className="inline-block text-sm sm:text-base bg-gray-200 text-gray-800 px-3 py-1 rounded-full mb-3">
                   {project.category}
                 </span>
-                <h3 className="text-3xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
                   {project.title}
                 </h3>
-                <p className="text-lg text-gray-700 mb-5">{project.description}</p>
+                <p className="text-base sm:text-lg text-gray-700 mb-5">
+                  {project.description}
+                </p>
 
                 <div className="flex items-center justify-between flex-wrap text-gray-600 mb-4">
-                  <div className="flex space-x-6 text-base">
+                  <div className="flex space-x-6 text-sm sm:text-base">
                     <div className="flex items-center space-x-1">
                       <Heart className="w-5 h-5" />
                       <span>{project.likes}</span>
@@ -104,7 +110,7 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                <button className="mt-2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition duration-300">
+                <button className="text-sm sm:text-base mt-2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition duration-300">
                   View
                 </button>
               </div>

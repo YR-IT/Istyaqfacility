@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <h3 className="font-playfair text-3xl font-bold mb-2">Istyaq Facility</h3>
             <p className="mb-4">Interior & Construction Services</p>
-            <p className="mb-6">
+            <p className="mb-6 text-justify">
               Professional construction and interior design company offering end-to-end solutions
               for residential and commercial spaces. Quality craftsmanship and modern design to turn your vision into reality.
             </p>

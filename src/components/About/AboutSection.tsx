@@ -159,7 +159,7 @@ const AboutSection: React.FC = () => {
             ))}
             <button
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black  sm:p-3 rounded-full text-xl font-bold shadow-md z-20"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-2 sm:p-3 rounded-full text-xl font-bold shadow-md z-20"
             >
               &#8592;
             </button>
@@ -169,6 +169,7 @@ const AboutSection: React.FC = () => {
             >
               &#8594;
             </button>
+
           </div>
 
           </div>
@@ -181,11 +182,12 @@ const AboutSection: React.FC = () => {
       Our Services
     </h2>
 
-    <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <div className="px-4 sm:px-6 lg:px-0 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
       {services.map((service, index) => (
         <ServiceCard key={index} service={service} />
       ))}
     </div>
+
 
     <div className="mt-20">
       <p className="text-white mb-4">Not sure which service fits you best?</p>
