@@ -146,7 +146,7 @@ const AboutSection: React.FC = () => {
             </h2>
           </div>
 
-          <div className="relative w-[90%] mx-auto h-[300px] sm:h-[400px] md:h-[580px] rounded-xl overflow-hidden shadow-xl mb-16">
+          <div className="relative w-[90%] mx-auto h-[300px] sm:h-[400px] md:h-[580px] rounded-xl overflow-hidden shadow-xl mb-2">
             {slideImages.map((image, index) => (
               <img
                 key={index}
@@ -177,7 +177,7 @@ const AboutSection: React.FC = () => {
       {/* SERVICES SECTION */}
       <section id="services" className="bg-slate-800 relative z-10">
   <div className="max-w-7xl mx-auto text-center ">
-    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white font-playfair mb-16">
+    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white font-playfair mb-20">
       Our Services
     </h2>
 

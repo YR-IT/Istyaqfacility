@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Palette, Wrench, Home, Paintbrush, Ruler, Lightbulb } from 'lucide-react';
 import slide1 from '../../assests/slideShow1.jpg';
 import slide2 from '../../assests/slideShow2.jpg';
 import slide3 from '../../assests/slideShow3.jpg';
@@ -9,6 +8,7 @@ import slide6 from '../../assests/slideShow6.jpg';
 import slide7 from '../../assests/slideShow7.jpg';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import '../stylesheet/Main.css';
 
 const slideImages = [slide1, slide2, slide3, slide4, slide5, slide6, slide7];
 
@@ -87,8 +87,9 @@ const ServicesPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
             className="text-lg sm:text-xl text-white max-w-2xl"
-          >
-            Tailored to your dreams. Designed for your lifestyle. Built with precision.
+          > <p className="text-3xl font-playfair">
+            Your ideas, our design. Your comfort, our goal.
+            </p>
           </motion.p>
         </div>
       </div>
