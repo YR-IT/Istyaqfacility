@@ -3,7 +3,7 @@ import Header from './components/Header';
 import AboutNew from './pages/aboutnew';
 import Services from './pages/Services';
 import Home from './pages/Home';
-import Portfolio from './pages/portfolio';
+import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact'; 
 import Footer from './components/Footer';
 
