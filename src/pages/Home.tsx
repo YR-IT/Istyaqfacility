@@ -17,14 +17,14 @@ const Home = () => {
           </h1>
           <div className="flex flex-col sm:flex-row sm:gap-3">
   <Link to="/Portfolio">
-    <button className="bg-[#0e345a] hover:bg-[#0b2647] text-white px-8 py-3 rounded-lg text-sm sm:text-lg font-semibold shadow-md transition mb-2 sm:mb-0">
-      VIEW OUR PROJECTS
-    </button>
-  </Link>
-  <Link to="/contact">
-    <button className="bg-[#0e345a] hover:bg-[#0b2647] text-white px-8 py-3 rounded-lg text-sm sm:text-lg font-semibold shadow-md transition">
-      GET IN TOUCH
-    </button>
+  <button className="bg-transparent hover:bg-[#222938] text-white border border-white px-8 py-3 rounded-lg text-sm sm:text-lg font-semibold shadow-md transition mb-2 sm:mb-0">
+    VIEW OUR PROJECTS
+  </button>
+</Link>
+<Link to="/contact">
+  <button className="bg-transparent hover:bg-[#0b2647] text-white border border-white px-8 py-3 rounded-lg text-sm sm:text-lg font-semibold shadow-md transition">
+    GET IN TOUCH
+  </button>
   </Link>
 </div>
         </div>
