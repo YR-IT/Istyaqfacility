@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 .maintheme {
   color: #000;
 }
@@ -134,4 +134,12 @@ body {
   color: #333;
   padding: 8px 16px;
   cursor: pointer;
+}
+
+.group:hover .group-hover\:scale-125 {
+  transform: scale(1.25);
+}
+
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
 }

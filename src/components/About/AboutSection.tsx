@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {Award,Lightbulb,Users,Target,Palette,Hammer,Wrench,Home,LucideIcon,} from 'lucide-react';
+import {
+  Award, Lightbulb, Users, Target, Palette, Hammer, Wrench, Home, LucideIcon,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import slide1 from '../../assests/slideShow1.jpg';
 import slide2 from '../../assests/slideShow2.jpg';
@@ -91,7 +93,7 @@ const AboutSection: React.FC = () => {
       {/* ABOUT SECTION */}
       <section id="about" className="pt-10 pb-10 bg-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10 animate__animated animate__fadeIn">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-white mb-4">
               See Us in Action
             </h2>
@@ -111,12 +113,15 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            <div className="rounded-xl shadow-xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-                alt="Interior Preview"
-                className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
-              />
+            <div className="rounded-xl shadow-xl overflow-hidden transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+                  alt="Interior Preview"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black opacity-30 transition-opacity duration-300 hover:opacity-50"></div>
+              </div>
             </div>
           </div>
 
@@ -124,10 +129,13 @@ const AboutSection: React.FC = () => {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center"
+                className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-200 text-center transform hover:scale-100 animate__animated animate__fadeIn animate__delay-1s relative"
               >
-                <div className="w-16 h-16 border-2 border-[#0e345a] rounded-full flex items-center justify-center mx-auto mb-4 bg-[#0e345a] hover:bg-[#0b2647] transition-colors">
-                  <value.icon className="h-8 w-8 text-white" />
+                {/* Thin Side Line */}
+                <div className="absolute left-0 top-0 h-full w-1 bg-[#0e345a] rounded-l-lg"></div>
+                
+                <div className="w-16 h-16 border-2 border-[#0e345a] rounded-full flex items-center justify-center mx-auto mb-4 bg-[#0e345a] hover:bg-[#0b2647] transition-colors transform hover:rotate-3">
+                  <value.icon className="h-8 w-8 text-white transition-transform duration-300 transform hover:scale-150 hover:rotate-12" />
                 </div>
                 <h4 className="text-xl font-bold text-gray-800">{value.title}</h4>
                 <p className="text-gray-600 mt-2">{value.description}</p>
@@ -140,7 +148,7 @@ const AboutSection: React.FC = () => {
       {/* SLIDESHOW SECTION */}
       <section id="how-it-works" className="bg-slate-800 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10 animate__animated animate__fadeIn">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold text-white mb-8">
               Creating Beautiful Spaces for Everyone
             </h2>
@@ -159,49 +167,45 @@ const AboutSection: React.FC = () => {
             ))}
             <button
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-2 sm:p-3 rounded-full text-xl font-bold shadow-md z-20"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-2 sm:p-3 rounded-full text-xl font-bold shadow-md z-20 transition-transform transform hover:scale-110"
             >
               &#8592;
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black p-2 sm:p-3 rounded-full text-xl font-bold shadow-md z-20"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black p-2 sm:p-3 rounded-full text-xl font-bold shadow-md z-20 transition-transform transform hover:scale-110"
             >
               &#8594;
             </button>
-
           </div>
-
-          </div>
+        </div>
       </section>
 
       {/* SERVICES SECTION */}
       <section id="services" className="bg-slate-800 relative z-10">
-  <div className="max-w-7xl mx-auto text-center ">
-    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white font-playfair mb-20">
-      Our Services
-    </h2>
+        <div className="max-w-7xl mx-auto text-center ">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white font-playfair mb-20 animate__animated animate__fadeIn">
+            Our Services
+          </h2>
 
-    <div className="px-4 sm:px-6 lg:px-0 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-      {services.map((service, index) => (
-        <ServiceCard key={index} service={service} />
-      ))}
-    </div>
+          <div className="px-4 sm:px-6 lg:px-0 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, index) => (
+              <ServiceCard key={index} service={service} />
+            ))}
+          </div>
 
-
-    <div className="mt-20">
-      <p className="text-white mb-4">Not sure which service fits you best?</p>
-      <div className="text-center">
-        <Link to="/Contact">
-          <button className="px-8 py-3 rounded-lg font-semibold text-black bg-white hover:bg-[#dcddde] transition mb-10">
-            Start Your Project Today
-          </button>
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
-
+          <div className="mt-20">
+            <p className="text-white mb-4">Not sure which service fits you best?</p>
+            <div className="text-center">
+              <Link to="/Contact">
+                <button className="px-8 py-3 rounded-lg font-semibold text-black bg-white hover:bg-[#dcddde] transition mb-10 transform hover:scale-105">
+                  Start Your Project Today
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
