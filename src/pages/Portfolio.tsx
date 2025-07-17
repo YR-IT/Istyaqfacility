@@ -68,56 +68,57 @@ const Portfolio = () => {
 
       {/* Projects Section */}
       <section className="py-1 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`flex flex-col md:flex-row ${
-                index % 2 !== 0 ? 'md:flex-row-reverse' : ''
-              } items-center mb-20 gap-10`}
-            >
-              {/* Image */}
-              <div className="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-lg group">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 sm:h-80 md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {projects.map((project, index) => (
+      <div
+        key={index}
+        className={`flex flex-col md:flex-row ${
+          index % 2 !== 0 ? 'md:flex-row-reverse' : ''
+        } items-center mb-20 gap-10 animate__animated animate__fadeIn animate__delay-${index}s`}
+      >
+        {/* Image */}
+        <div className="md:w-1/2 w-full overflow-hidden rounded-2xl shadow-lg group">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-64 sm:h-80 md:h-[400px] object-cover group-hover:scale-110 transition-transform duration-300"
+          />
+        </div>
+
+        {/* Details */}
+        <div className="md:w-1/2 w-full transform transition-transform duration-300 hover:scale-105">
+          <span className="inline-block text-sm sm:text-base bg-gray-200 text-gray-800 px-3 py-1 rounded-full mb-3">
+            {project.category}
+          </span>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
+            {project.title}
+          </h3>
+          <p className="text-base sm:text-lg text-gray-700 mb-5">
+            {project.description}
+          </p>
+
+          <div className="flex items-center justify-between flex-wrap text-gray-600 mb-4">
+            <div className="flex space-x-6 text-sm sm:text-base">
+              <div className="flex items-center space-x-1">
+                <Heart className="w-5 h-5" />
+                <span>{project.likes}</span>
               </div>
-
-              {/* Details */}
-              <div className="md:w-1/2 w-full">
-                <span className="inline-block text-sm sm:text-base bg-gray-200 text-gray-800 px-3 py-1 rounded-full mb-3">
-                  {project.category}
-                </span>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-base sm:text-lg text-gray-700 mb-5">
-                  {project.description}
-                </p>
-
-                <div className="flex items-center justify-between flex-wrap text-gray-600 mb-4">
-                  <div className="flex space-x-6 text-sm sm:text-base">
-                    <div className="flex items-center space-x-1">
-                      <Heart className="w-5 h-5" />
-                      <span>{project.likes}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Eye className="w-5 h-5" />
-                      <span>{project.views}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <button className="text-sm sm:text-base mt-2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition duration-300">
-                  View
-                </button>
+              <div className="flex items-center space-x-1">
+                <Eye className="w-5 h-5" />
+                <span>{project.views}</span>
               </div>
             </div>
-          ))}
+          </div>
+
+          <button className="text-sm sm:text-base mt-2 bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-105">
+            View
+          </button>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
     </>
   );
 };

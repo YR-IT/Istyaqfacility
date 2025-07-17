@@ -22,7 +22,7 @@ const Home = () => {
   </button>
 </Link>
 <Link to="/contact">
-  <button className="bg-transparent hover:bg-[#0b2647] text-white border border-white px-8 py-3 rounded-lg text-sm sm:text-lg font-semibold shadow-md transition">
+  <button className="bg-transparent hover:bg-[#222938] text-white border border-white px-8 py-3 rounded-lg text-sm sm:text-lg font-semibold shadow-md transition">
     GET IN TOUCH
   </button>
   </Link>
