@@ -1,6 +1,6 @@
 import { Heart, Eye } from 'lucide-react';
 import '../components/stylesheet/Main.css';
-import backgroundVideo from '../assests/7578554-uhd_3840_2160_30fps.mp4';
+import backgroundVideo from '../assests/3770033-hd_1920_1080_25fps.mp4';
 
 const Portfolio = () => {
   const projects = [

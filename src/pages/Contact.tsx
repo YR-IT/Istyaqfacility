@@ -3,7 +3,7 @@ import {
   Phone, Mail, MapPin, MessageCircle, Send, Clock, Facebook, Instagram, Linkedin
 } from 'lucide-react';
 import '../components/stylesheet/Main.css';
-import backgroundVideo from '../assests/Untitled video - Made with Clipchamp.mp4';
+import backgroundVideo from '../assests/3773486-hd_1920_1080_30fps.mp4';
 import Footer from '../components/Footer';
 
 const Contact = () => {

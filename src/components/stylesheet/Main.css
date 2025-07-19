@@ -128,3 +128,10 @@ body {
   scrollbar-width: none;       /* Firefox */
   -ms-overflow-style: none;    /* IE/Edge */
 }
+.transparent-btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 8px 16px;
+  cursor: pointer;
+}
