@@ -1,15 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import backgroundVideo from '../assests/7578554-uhd_3840_2160_30fps.mp4';
-import magazine from '../assests/magazine.jpg';
-import '../components/stylesheet/Main.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import backgroundVideo from "../assests/7578554-uhd_3840_2160_30fps.mp4";
+import magazine from "../assests/magazine.jpg";
+import "../components/stylesheet/Main.css";
 
 const Home = () => {
   return (
     <div className="relative">
       {/* HERO SECTION */}
       <section className="h-screen w-full relative flex items-center justify-center text-white overflow-hidden">
-        <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40 z-10" />
@@ -31,16 +36,67 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+         <section className="bg-white py-16 px-4 md:px-20">
+        <h2 className=" md:text-8xl text-stone-500 text-center mb-10 font-playfair font-semibold">
+          Iconic Designs <p className="font-playfair mt-4 text-6xl text-black">That Inspire Worldwide</p> 
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+              title: "Luxury Living Room",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+              title: "Elegant Office Space",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+              title: "Contemporary Kitchen",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+              title: "Modern Workspace",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+              title: "Creative Studio Design",
+            },
+            {
+              url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+              title: "Elegant Hallway",
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition"
+            >
+              <img
+                src={item.url}
+                alt={item.title}
+                className="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <h3 className="text-white text-xl font-semibold">
+                  {item.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
       {/* CONSULTATION SECTION */}
-      <section className="bg-gray-100 py-20 px-6 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <section className="py-20 px-6 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 bg-white">
         <div className="lg:w-1/2 text-center lg:text-left">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Free Luxury Design Consultation</h2>
-          <p className="text-gray-600 mb-6">
-            Your design is an expression of who you are, and its design should match your lifestyle. Whether you have traditional tastes or desire a modern feel, we can design your dream space to suit any purpose.
+          <h2 className="text-5xl text-stone-500 mb-4 font-playfair font-semibold">
+            FREE LUXURY DESIGN CONSULATION
+          </h2>
+          <p className="text-black mb-6 text-lg">
+           Your design is an expression of who you are, and it should reflect your personality and lifestyle. Whether you love classic, traditional interiors or prefer a sleek, modern look, we create custom designs that bring your vision to life. Our expert team specializes in interior design, home makeovers, and space planning to make every corner both beautiful and functional. From cozy living rooms to stylish office spaces, we design for comfort, style, and purpose. Let us turn your space into something truly you.
+
           </p>
           <Link to="/contact">
-            <button className="bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-black transition flex items-center gap-2">
+            <button className="bg-gray-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-black transition flex items-center gap-2 ml-32">
               BOOK APPOINTMENT <span className="text-xl">→</span>
             </button>
           </Link>
@@ -58,62 +114,18 @@ const Home = () => {
       </section>
 
       {/* IMAGE GALLERY SECTION */}
-      <section className="bg-grey-100 py-16 px-4 md:px-20">
-        <h2 className="text-5xl md:text-5xl font-bold text-gray-800 text-center mb-10 font-playfair">
-          See Our Stunning <p className="mt-4">Transformations</p>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-              title: 'Luxury Living Room',
-            },
-            {
-              url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7',
-              title: 'Elegant Office Space',
-            },
-            {
-              url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-              title: 'Contemporary Kitchen',
-            },
-            {
-              url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-              title: 'Modern Workspace',
-            },
-            {
-              url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-              title: 'Creative Studio Design',
-            },
-            {
-              url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-              title: 'Elegant Hallway',
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition"
-            >
-              <img
-                src={item.url}
-                alt={item.title}
-                className="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <h3 className="text-white text-xl font-semibold">{item.title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+     
 
       {/* ABOUT US SECTION */}
       <section className="bg-white py-20 px-6 md:px-20">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="grid grid-cols-2 gap-4 w-full lg:w-1/2">
-            {['1', '2', '3'].map((_, i) => (
+            {["1", "2", "3"].map((_, i) => (
               <div
                 key={i}
-                className={`group relative overflow-hidden rounded-xl shadow-lg ${i === 2 ? 'col-span-2' : ''}`}
+                className={`group relative overflow-hidden rounded-xl shadow-lg ${
+                  i === 2 ? "col-span-2" : ""
+                }`}
               >
                 <img
                   src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
@@ -125,16 +137,22 @@ const Home = () => {
             ))}
           </div>
           <div className="w-full lg:w-1/2">
-            <p className="font-semibold uppercase mb-2 tracking-wide">About Us</p>
+            <p className="font-semibold uppercase mb-2 tracking-wide">
+              About Us
+            </p>
             <h2 className="text-4xl font-bold text-gray-900 mb-4 leading-snug">
               Creative solutions <br />
               By Professional <br />
               Interior designers
             </h2>
             <p className="text-gray-600 mb-6">
-              Your space is an expression of who you are, and its design should match your lifestyle.
-              Whether you have traditional tastes or desire a modern feel, we can design your dream space
-              to suit any purpose. <span className="text-black font-medium">We provide the best interior design in Gurgaon.</span>
+              Your space is an expression of who you are, and its design should
+              match your lifestyle. Whether you have traditional tastes or
+              desire a modern feel, we can design your dream space to suit any
+              purpose.{" "}
+              <span className="text-black font-medium">
+                We provide the best interior design in Gurgaon.
+              </span>
             </p>
             <div className="flex items-center gap-4 mt-6">
               <img
@@ -153,7 +171,9 @@ const Home = () => {
 
       {/* CLIENT TESTIMONIAL SECTION */}
       <section className="bg-grey-100 py-16 px-4 md:px-20 text-white">
-        <h2 className="text-black text-5xl md:text-5xl font-bold text-center mb-6 font-playfair">What Our Clients Say</h2>
+        <h2 className="text-black text-5xl md:text-5xl font-bold text-center mb-6 font-playfair">
+          What Our Clients Say
+        </h2>
         <h2 className="text-black text-3xl md:text-4xl font-bold text-center mb-10">
           Discover the experiences of those who trusted us
         </h2>
@@ -162,24 +182,24 @@ const Home = () => {
           <div className="flex gap-6 whitespace-nowrap animate-slide px-2">
             {[
               {
-                name: 'Prince Kumar',
+                name: "Prince Kumar",
                 review:
-                  'From concept to completion, ability to manage the project efficiently and address every detail ensured that everything ran smoothly.',
+                  "From concept to completion, ability to manage the project efficiently and address every detail ensured that everything ran smoothly.",
               },
               {
-                name: 'Jai Jindal',
+                name: "Jai Jindal",
                 review:
-                  'Designs are not only aesthetically pleasing but also highly functional. Her dedication and passion were evident throughout our renovation project.',
+                  "Designs are not only aesthetically pleasing but also highly functional. Her dedication and passion were evident throughout our renovation project.",
               },
               {
-                name: 'Neha Sharma',
+                name: "Neha Sharma",
                 review:
-                  'Exceptional creativity and professionalism. They transformed our vision into a stunning reality beyond expectations.',
+                  "Exceptional creativity and professionalism. They transformed our vision into a stunning reality beyond expectations.",
               },
               {
-                name: 'Rohit Khanna',
+                name: "Rohit Khanna",
                 review:
-                  'Their team was efficient, creative, and communicative. Highly recommended for modern, functional design.',
+                  "Their team was efficient, creative, and communicative. Highly recommended for modern, functional design.",
               },
             ].map((client, index) => (
               <div
