@@ -13,53 +13,54 @@ import {
   DollarSign,
   Gem,
 } from "lucide-react";
+import { FaStar, FaShieldAlt, FaUsers } from "react-icons/fa";
 
-// ✅ Feature Cards Data
+//  Feature Cards Data
 const features = [
   {
-    icon: <Users size={32} className="text-stone-700" />,
-    title: "Expert Designers",
-    desc: "Our experienced team brings your dream space to life with creativity and precision.",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+    title: "Top Quality",
+    desc: "We prioritize delivering unmatched quality in every aspect of our work.",
   },
   {
-    icon: <Palette size={32} className="text-stone-700" />,
-    title: "Tailored Interiors",
-    desc: "Each design is customized to reflect your personality and lifestyle needs.",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+    title: "Trusted Security",
+    desc: "Your data is safe with our robust and secure infrastructure.",
   },
   {
-    icon: <Clock size={32} className="text-stone-700" />,
-    title: "On-Time Delivery",
-    desc: "We ensure timely project completion without compromising on quality.",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+    title: "Customer Focused",
+    desc: "Every solution is tailored to our clients' unique needs.",
   },
   {
-    icon: <DollarSign size={32} className="text-stone-700" />,
-    title: "Affordable Pricing",
-    desc: "Get premium design services at budget-friendly rates.",
-  },
-  {
-    icon: <Gem size={32} className="text-stone-700" />,
-    title: "Premium Materials",
-    desc: "We use only high-quality and durable materials in every project.",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+    title: "Innovative Solutions",
+    desc: "We bring creativity and advanced thinking to every project.",
   },
 ];
 
-// ✅ Why Choose Us Component
 const WhyChooseUs = () => (
-  <section className="bg-white px-4 md:px-20 py-10">
-    <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 font-playfair text-stone-700">
+  <section className="bg-gradient-to-b from-white to-stone-100 px-6 md:px-24 py-20">
+    <h2 className="text-7xl font-bold text-center text-stone-800 font-playfair mb-16">
       Why Choose Us
     </h2>
 
-    <div className="overflow-x-auto whitespace-nowrap hide-scrollbar">
-      <div className="flex gap-6 animate-scrollX">
-        {features.map((item, index) => (
+    <div className="overflow-hidden hide-scrollbar">
+      <div className="flex gap-8 animate-scrollX w-max">
+        {[...features, ...features].map((item, index) => (
           <div
             key={index}
-            className="min-w-[300px] max-w-xs bg-stone-100 p-6 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 flex-shrink-0 h-[240px] flex flex-col justify-start"
+            className="min-w-[320px] max-w-sm bg-white rounded-3xl shadow-xl hover:shadow-2xl hover:scale-105 transition-transform duration-500 flex-shrink-0 overflow-hidden"
           >
-            <div className="mb-4">{item.icon}</div>
-            <h3 className="text-xl font-semibold text-stone-800 mb-2">{item.title}</h3>
-            <p className="text-stone-600 text-sm">{item.desc}</p>
+            <img
+              src={item.img}
+              alt={item.title}
+              className="h-48 w-full object-cover hover:brightness-110 transition duration-300"
+            />
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold text-stone-800 mb-2">{item.title}</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -67,15 +68,23 @@ const WhyChooseUs = () => (
 
     <style>{`
       .animate-scrollX {
+        display: flex;
         animation: scrollX 40s linear infinite;
       }
+
       @keyframes scrollX {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
+
       .hide-scrollbar::-webkit-scrollbar {
         display: none;
       }
+
       .hide-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -83,6 +92,7 @@ const WhyChooseUs = () => (
     `}</style>
   </section>
 );
+
 
 const Home = () => {
   return (
@@ -126,7 +136,6 @@ const Home = () => {
             {
               number: "01",
               title: "We Visit You At Home",
-              desc: "We will arrange a visit to discuss your requirements in detail.",
               image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
             },
             {
