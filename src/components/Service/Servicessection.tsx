@@ -9,7 +9,6 @@ import slide7 from '../../assests/slideShow7.jpg';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../stylesheet/Main.css';
-
 const slideImages = [slide1, slide2, slide3, slide4, slide5, slide6, slide7];
 
 const services = [
