@@ -57,9 +57,9 @@ const ServicesPage = () => {
   }, []);
 
   return (
-    <div className="bg-slate-800">
+    <div className="bg-white">
       {/* Slideshow */}
-      <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden relative">
+      <div className="h-screen w-full relative flex items-center justify-center overflow-hidden relative">
         {slideImages.map((image, index) => (
           <img
             key={index}
@@ -133,15 +133,15 @@ const ServicesPage = () => {
 
               {/* Content */}
               <motion.div
-                className="w-full lg:w-1/2 text-white lg:px-16 text-center lg:text-left"
+                className="w-full lg:w-1/2 text-stone-500 lg:px-20 text-center lg:text-left"
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
-                <h2 className="text-3xl md:text-4xl font-semibold mb-4 font-playfair">
+                <h2 className="text-4xl md:text-5xl font-semibold mb-4 font-playfair">
                   {service.title}
                 </h2>
-                <p className="text-lg text-gray-300 leading-relaxed">{service.description}</p>
+                <p className="text-lg text-black  leading-relaxed">{service.description}</p>
               </motion.div>
             </motion.div>
           );
