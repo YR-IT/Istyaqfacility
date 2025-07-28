@@ -89,124 +89,173 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <div>
-      {/* ABOUT SECTION */}
-      <section id="about" className="pt-10 pb-10 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 animate__animated animate__fadeIn">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-white mb-4">
-              See Us in Action
-            </h2>
-          </div>
+<div className="bg-white text-slate-900 font-sans">
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-            <div className="space-y-6 text-center lg:text-left">
-              <h3 className="font-playfair text-2xl md:text-3xl font-bold text-white mb-4">
-                "Building Dreams, Crafting Spaces"
-              </h3>
-              <p className="text-base text-white leading-relaxed">
-                Istyaq Facility Interior & Constructs is a professional construction & interior
-                design company offering end-to-end solutions for residential and commercial spaces.
-                We transform your vision into reality with our expertise, dedication, and attention
-                to detail. With years of experience in the industry, we have built a reputation for
-                delivering exceptional results that exceed our clients' expectations.
-              </p>
-            </div>
-
-            <div className="rounded-xl shadow-xl overflow-hidden transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-                  alt="Interior Preview"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black opacity-30 transition-opacity duration-300 hover:opacity-50"></div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-200 text-center transform hover:scale-100 animate__animated animate__fadeIn animate__delay-1s relative"
-              >
-                {/* Thin Side Line */}
-                <div className="absolute left-0 top-0 h-full w-1 bg-[#0e345a] rounded-l-lg"></div>
-                
-                <div className="w-16 h-16 border-2 border-[#0e345a] rounded-full flex items-center justify-center mx-auto mb-4 bg-[#0e345a] hover:bg-[#0b2647] transition-colors transform hover:rotate-3">
-                  <value.icon className="h-8 w-8 text-white transition-transform duration-300 transform hover:scale-150 hover:rotate-12" />
-                </div>
-                <h4 className="text-xl font-bold text-gray-800">{value.title}</h4>
-                <p className="text-gray-600 mt-2">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SLIDESHOW SECTION */}
-      <section id="how-it-works" className="bg-slate-800 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 animate__animated animate__fadeIn">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold text-white mb-8">
-              Creating Beautiful Spaces for Everyone
-            </h2>
-          </div>
-
-          <div className="relative w-[90%] mx-auto h-[300px] sm:h-[400px] md:h-[580px] rounded-xl overflow-hidden shadow-xl mb-2">
-            {slideImages.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Slide ${index}`}
-                className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                  index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                }`}
-              />
-            ))}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-black p-2 sm:p-3 rounded-full text-xl font-bold shadow-md z-20 transition-transform transform hover:scale-110"
-            >
-              &#8592;
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-black p-2 sm:p-3 rounded-full text-xl font-bold shadow-md z-20 transition-transform transform hover:scale-110"
-            >
-              &#8594;
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES SECTION */}
-      <section id="services" className="bg-slate-800 relative z-10">
-        <div className="max-w-7xl mx-auto text-center ">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white font-playfair mb-20 animate__animated animate__fadeIn">
-            Our Services
-          </h2>
-
-          <div className="px-4 sm:px-6 lg:px-0 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service, index) => (
-              <ServiceCard key={index} service={service} />
-            ))}
-          </div>
-
-          <div className="mt-20">
-            <p className="text-white mb-4">Not sure which service fits you best?</p>
-            <div className="text-center">
-              <Link to="/Contact">
-                <button className="px-8 py-3 rounded-lg font-semibold text-black bg-white hover:bg-[#dcddde] transition mb-10 transform hover:scale-105">
-                  Start Your Project Today
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* Hero Section */}
+  <section className="relative h-[70vh] flex items-center justify-center bg-center bg-cover" style={{ backgroundImage: "url('/your-interior-image.jpg')" }}>
+    <div className="absolute inset-0 bg-black/40" />
+    <div className="relative z-10 text-center text-white px-4">
+      <h1 className="text-5xl font-bold font-playfair">About Us</h1>
+      <p className="mt-4 text-lg">Crafting Timeless Interiors & Functional Spaces</p>
+      <a href="/projects" className="mt-6 inline-block bg-white text-slate-900 px-6 py-2 rounded hover:bg-gray-100 font-medium">View Our Work</a>
     </div>
+  </section>
+
+  {/* Our Story */}
+  <section className="py-16 px-6 bg-white">
+    <div className="max-w-5xl mx-auto text-center">
+      <h2 className="text-4xl font-bold font-playfair mb-6">Our Story</h2>
+      <p className="text-lg text-gray-700 leading-relaxed">
+        Founded with a vision to transform everyday spaces into elegant masterpieces, Istyaq Facility combines creativity with functionality.
+        <br /><br />
+        What began as a passion project has evolved into a full-service design firm built on trust, transparency, and timeless aesthetics.
+      </p>
+    </div>
+  </section>
+
+  {/* What We Do */}
+  <section className="py-20 px-6 bg-gray-50">
+    <div className="max-w-6xl mx-auto text-center">
+      <h2 className="text-4xl font-bold font-playfair mb-10">What We Do</h2>
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+        {[
+          "Residential Interiors",
+          "Commercial Interiors",
+          "Renovation & Remodeling",
+          "Modular Kitchens",
+          "Construction Services",
+          "Turnkey Solutions"
+        ].map((service, i) => (
+          <div key={i} className="bg-white border border-gray-200 p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold">{service}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Core Values */}
+  <section className="py-20 px-6 bg-white">
+    <div className="max-w-6xl mx-auto text-center">
+      <h2 className="text-4xl font-bold font-playfair mb-12">Our Core Values</h2>
+      <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-8">
+        {["Innovation", "Quality Craftsmanship", "Client-Centric", "Sustainability"].map((value, i) => (
+          <div key={i} className="border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+            <h3 className="text-lg font-semibold">{value}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Why Choose Us */}
+  <section className="py-20 px-6 bg-gray-50">
+    <div className="max-w-5xl mx-auto text-center">
+      <h2 className="text-4xl font-bold font-playfair mb-10">Why Choose Us</h2>
+      <div className="grid md:grid-cols-2 gap-8 text-left">
+        {[
+          "Award-winning designs tailored to your needs",
+          "Experienced professionals who care about quality",
+          "End-to-end project execution from design to delivery",
+          "Transparent pricing with no hidden surprises"
+        ].map((reason, i) => (
+          <div key={i} className="flex items-start gap-4">
+            <div className="text-green-600 text-xl mt-1">✔️</div>
+            <p className="text-gray-700">{reason}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Meet the Team */}
+  <section className="py-20 px-6 bg-white">
+    <div className="max-w-5xl mx-auto text-center">
+      <h2 className="text-4xl font-bold font-playfair mb-10">Meet the Team</h2>
+      <div className="grid sm:grid-cols-2 gap-10">
+        <div className="border border-gray-200 p-6 rounded-lg shadow hover:shadow-md transition">
+          <img src="/istyaq.jpg" alt="Istyaq" className="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
+          <h3 className="text-xl font-semibold">Istyaq Ahmad</h3>
+          <p className="text-gray-500">Founder & Creative Director</p>
+          <p className="text-sm text-gray-600 mt-3">A visionary interior designer with a passion for elegance and functionality.</p>
+        </div>
+        {/* More team cards if needed */}
+      </div>
+    </div>
+  </section>
+
+  {/* Milestones */}
+  <section className="py-20 px-6 bg-gray-50">
+    <div className="max-w-6xl mx-auto text-center">
+      <h2 className="text-4xl font-bold font-playfair mb-10">Milestones</h2>
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <h3 className="text-3xl font-bold text-blue-600">2018</h3>
+          <p className="text-gray-700">Founded</p>
+        </div>
+        <div>
+          <h3 className="text-3xl font-bold text-blue-600">120+</h3>
+          <p className="text-gray-700">Projects Completed</p>
+        </div>
+        <div>
+          <h3 className="text-3xl font-bold text-blue-600">15+</h3>
+          <p className="text-gray-700">Team Members</p>
+        </div>
+        <div>
+          <h3 className="text-3xl font-bold text-blue-600">10+</h3>
+          <p className="text-gray-700">Awards & Recognitions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Testimonials */}
+  <section className="py-20 px-6 bg-white">
+    <div className="max-w-5xl mx-auto text-center">
+      <h2 className="text-4xl font-bold font-playfair mb-12">Client Testimonials</h2>
+      <div className="grid md:grid-cols-2 gap-8">
+        {[
+          {
+            name: "Amit Sharma",
+            feedback: "Istyaq Facility turned my house into a dream home. Professional, punctual, and deeply creative!"
+          },
+          {
+            name: "Sonal Rajput",
+            feedback: "From design to delivery, everything was top-notch. Highly recommend!"
+          }
+        ].map((review, i) => (
+          <div key={i} className="bg-gray-50 border border-gray-200 p-6 rounded-lg shadow-sm">
+            <p className="italic text-gray-700 mb-4">“{review.feedback}”</p>
+            <h4 className="text-lg font-semibold">{review.name}</h4>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section className="py-16 px-6 bg-gray-100 text-center">
+    <h2 className="text-3xl font-bold font-playfair mb-4">Let’s Build Your Dream Space</h2>
+    <p className="text-gray-700 mb-6">Reach out today to schedule a consultation or explore our work.</p>
+    <a href="/contact" className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition">Schedule a Consultation</a>
+  </section>
+
+  {/* Contact Snippet */}
+  <section className="py-10 px-6 bg-white text-center">
+    <div className="max-w-xl mx-auto">
+      <h3 className="text-xl font-semibold mb-2">Get In Touch</h3>
+      <p>Email: <a href="mailto:info@istyaqfacility.com" className="text-blue-600 underline">info@istyaqfacility.com</a></p>
+      <p>Phone: <a href="tel:+919876543210" className="text-blue-600 underline">+91 98765 43210</a></p>
+      <div className="mt-4 flex justify-center gap-4">
+        <a href="#" className="text-blue-600 hover:underline">Instagram</a>
+        <a href="#" className="text-blue-600 hover:underline">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
   );
 };
 
