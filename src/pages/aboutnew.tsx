@@ -232,7 +232,7 @@ const AboutAndHow: React.FC = () => {
             </span>
             <p className="text-gray-800 text-lg">
               Let&apos;s make something great together.{" "}
-              <a href="contact" className="text-black underline font-semiboldld">Got a project in mind?</a>
+              <a href="/contact" className="text-black underline font-semiboldld">Got a project in mind?</a>
             </p>
           </div>
         </section>
