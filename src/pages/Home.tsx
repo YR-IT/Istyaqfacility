@@ -40,7 +40,7 @@ const features = [
 ];
 
 const WhyChooseUs = () => (
-  <section className="bg-gradient-to-b from-white to-stone-100 px-6 md:px-24 py-20">
+  <section className="bg-gradient-to-b from-white to-white px-6 md:px-20 py-">
     <h2 className="text-7xl font-bold text-center text-stone-800 font-playfair mb-16">
       Why Choose Us
     </h2>
@@ -127,65 +127,86 @@ const Home = () => {
       <WhyChooseUs />
 
       {/* PROCESS SECTION */}
-      <section className="py-24 px-0 bg-white font-playfair">
+      {/* PROCESS SECTION */}
+      <section className="py-24 bg-white font-playfair">
         <h2 className="text-5xl md:text-7xl font-bold text-stone-800 mb-20 text-center">
           Interior Design Process
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 w-full">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-8">
           {[
             {
               number: "01",
               title: "We Visit You At Home",
-              image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+              image:
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
             },
             {
               number: "02",
               title: "Preliminary Computer Designs",
-              desc: "",
-              image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+              image:
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
             },
             {
               number: "03",
               title: "Begin The Detailed Design Process",
-              desc: "",
-              image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+              image:
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
             },
             {
               number: "04",
               title: "Project Execution",
-              desc: "",
-              image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+              image:
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
             },
           ].map((step, idx) => (
-            <div key={idx} className="relative group h-[600px] w-full overflow-hidden cursor-pointer transition-all duration-700">
-              <div className="absolute inset-0 bg-stone-600 transition-all duration-700 ease-in-out group-hover:opacity-0 z-10"></div>
+            <div
+              key={idx}
+              className="relative group h-[500px] w-full overflow-hidden rounded-lg shadow-md"
+            >
               <img
                 src={step.image}
                 alt={step.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transform transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:rotate-[-2deg] group-hover:scale-110 z-0"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-[-1.5deg] z-0"
               />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-700 z-0"></div>
-              <div className="relative z-20 flex flex-col justify-end h-full p-8 text-white">
-                <div className="text-[5rem] md:text-[6rem] font-bold text-white/30 mb-4 leading-none">{step.number}</div>
-                <h3 className="text-2xl font-semibold">{step.title}</h3>
-                {step.desc && <p className="text-sm text-gray-200 max-w-[250px] mt-2">{step.desc}</p>}
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition duration-700 z-10"></div>
+
+              {/* Content */}
+              <div className="relative z-20 flex flex-col justify-end h-full p-6 text-white transition-all duration-700 ease-in-out">
+                <div className="text-[4rem] md:text-[5rem] font-bold text-white/30 mb-2 leading-none">
+                  {step.number}
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold">{step.title}</h3>
               </div>
             </div>
           ))}
         </div>
       </section>
 
+
+
+
+
+
+
       {/* CONSULTATION SECTION */}
-      <section>
-        <div className="relative">
-          <img src={template} className="w-100" alt="Template" />
-          <Link to="/contact">
-            <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-stone-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-black transition flex items-center gap-2 mb-48 ml-40">
-              BOOK APPOINTMENT <span className="text-xl">→</span>
-            </button>
-          </Link>
-        </div>
+      <section className="relative w-full overflow-hidden">
+        <img
+          src={template}
+          alt="Template"
+          className="w-full h-auto object-cover"
+        />
+        <Link to="/contact">
+          <button
+            className="absolute bottom-12 right-10 bg-stone-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-black transition flex items-center gap-2 shadow-lg"
+          >
+            BOOK APPOINTMENT <span className="text-xl">→</span>
+          </button>
+        </Link>
       </section>
+
+
 
       {/* ABOUT US SECTION */}
       <section className="bg-white py-20 px-6 md:px-20">
