@@ -21,3 +21,15 @@
     { "source": "/(.*)", "destination": "/" }
   ]
 }
+{
+  "routes": [
+    {
+      "src":"/",
+      "dest":"/"
+    },
+        {
+      "src":"/service",
+      "dest":"/"
+    },
+  ]
+}
