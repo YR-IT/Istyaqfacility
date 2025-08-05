@@ -6,6 +6,15 @@ import { Link } from 'react-router-dom';
 import '../components/stylesheet/Main.css';
 import '../components/stylesheet/index.css';
 import background from '../assests/Untitled video - Made with Clipchamp.mp4';
+import bottomRightImg from '../assests/right1.png';
+import leftImg from '../assests/left.jpg';
+import slide1 from '../assests/slideShow1.jpg';
+import slide2 from '../assests/slideShow2.jpg';
+import slide3 from '../assests/slideShow3.jpg';
+import slide4 from '../assests/slideShow4.jpg';
+import slide5 from '../assests/slideShow5.jpg';
+import slide6 from '../assests/slideShow6.jpg';
+import slide7 from '../assests/slideShow7.jpg';
 
 interface ValueItem {
   icon: React.ElementType;
@@ -68,95 +77,140 @@ const AboutAndHow: React.FC = () => {
 
 
         {/* Our Story */}
-        <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+{/* Innovation Section */}
+<section className="relative py-24 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6">
+    
+    {/* Top Left Decorative Image */}
+    <img
+      src={leftImg}
+      alt="Decor Left"
+      className="absolute top-1 left-0.5 w-96 opacity-50 z-0"
+    />
 
-            {/* Image */}
-            <div className="w-full overflow-hidden rounded-lg shadow-lg transform transition duration-700 hover:scale-105 animate-fade-in">
-              <img
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" // replace with your actual image path
-                alt="Our Story - Interior"
-                className="w-full h-full object-cover"
-              />
-            </div>
+    {/* Bottom Right Decorative Image */}
+<img
+  src={bottomRightImg}
+  alt="Decor Right"
+  className="absolute bottom-0.5 right-0 w-[500px] opacity-100 z-0"
+/>
 
-            {/* Text Content */}
-            <div className="text-center md:text-left animate-fade-in-up delay-200">
-              <h2 className="text-4xl md:text-5xl font-bold font-playfair text-stone-500 mb-6 leading-tight">
-                Our Story
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed tracking-wide">
-                <span className="font-medium text-slate-800">Founded with a vision</span> to transform everyday spaces into elegant masterpieces, <span className="font-semibold">Istyaq Facility</span> has always been about more than just interiors — it's about enriching lives through design.
-                <br /><br />
-                What began as a passion project has evolved into a <span className="text-blue-600 font-medium">full-service design firm</span> rooted in trust, transparency, and timeless aesthetics. Every project we take on is a reflection of our <span className="italic">commitment to beauty, functionality, and client satisfaction</span>.
-              </p>
-            </div>
+
+    <div className="relative z-10 text-center max-w-3xl mx-auto">
+      <span className="inline-block bg-gray-900 text-white text-xs px-4 py-1 rounded-full mb-4 tracking-widest uppercase">
+        Since 1986
+      </span>
+      
+      <h2 className="text-4xl md:text-5xl font-extrabold font-serif text-gray-900 leading-tight mb-6">
+        We believe innovation is the<br /> key to build a better future<br /> for our people.
+      </h2>
+
+      <p className="text-gray-600 text-lg mb-10">
+        There is a need for a directing order of activity that, while bringing out the human energies,<br />
+        won’t endure them to be squandered.
+      </p>
+
+      {/* Tabs Section */}
+      <div className="flex flex-wrap justify-center gap-4">
+        {[
+          { label: 'Commercial', icon: '🏢' },
+          { label: 'Industrial', icon: '🏭' },
+          { label: 'Residential', icon: '🏘️' },
+          { label: 'Corporate', icon: '🏙️' },
+        ].map((tab, index) => (
+          <div
+            key={index}
+            className="flex items-center gap-2 px-5 py-3 bg-white border border-gray-300 rounded-full shadow hover:shadow-lg transition-transform hover:scale-105 text-sm font-medium text-gray-700"
+          >
+            <span className="text-xl">{tab.icon}</span>
+            {tab.label}
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
 {/* What We Do */}
+{/* What We Do */}
 <section className="py-20 px-6 bg-white">
-  <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-12 text-slate-900 animate-fade-in-up">
-      What We Do
-    </h2>
+  <div className="max-w-7xl mx-auto">
+    {/* Header Section */}
+    <div className="flex flex-col md:flex-row justify-between items-center mb-16">
+      <div>
+        <span className="uppercase tracking-widest text-sm text-gray-500 font-medium">Latest Services</span>
+        <h2 className="text-5xl font-bold font-playfair text-slate-900 mt-3">Discover what we do</h2>
+      </div>
+      <a
+        href="/services"
+        className="mt-6 md:mt-0 inline-flex items-center gap-2 border border-black px-6 py-2 rounded-full text-black hover:bg-black hover:text-white transition"
+      >
+        Take a Look
+        <span className="inline-block w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </span>
+      </a>
+    </div>
 
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+    {/* Services Grid */}
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12">
       {[
         {
-          title: "Residential Interiors",
-          icon: "🏡",
-          description: "Transforming houses into homes with cozy and elegant interiors.",
-         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
-
-
-
+          title: 'Interior Design',
+          description: 'Elegant, modern, and functional interiors with 3D visualizations, material selection, and custom concepts.',
+          image: slide1,
         },
         {
-          title: "Commercial Interiors",
-          icon: "🏢",
-          description: "Modern and functional spaces designed for productivity.",
-         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+          title: 'Construction',
+          description: 'End-to-end construction solutions from layout planning to full build execution.',
+          image: slide2,
         },
         {
-          title: "Renovation & Remodeling",
-          icon: "🔧",
-          description: "Reimagining spaces with creative upgrades and makeovers.",
-         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+          title: 'Renovation',
+          description: 'Transform your space with modern upgrades, space optimization, and budget-friendly improvements.',
+          image: slide3,
         },
         {
-          title: "Modular Kitchens",
-          icon: "🍽️",
-          description: "Stylish and efficient modular kitchen designs tailored for you.",
-         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+          title: 'House Services',
+          description: 'Quick and reliable plumbing, electrical, carpentry, and maintenance services.',
+          image: slide4,
         },
         {
-          title: "Construction Services",
-          icon: "🚧",
-          description: "End-to-end construction with precision and durability.",
-         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+          title: 'Painting & Decor',
+          description: 'Stylish painting, wall design, and decor planning with premium finishes.',
+          image: slide5,
         },
         {
-          title: "Turnkey Solutions",
-          icon: "🗝️",
-          description: "From planning to execution — we deliver ready-to-use spaces.",
-         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
-        }
+          title: 'Modular Kitchen',
+          description: 'Custom-built modular kitchens designed with elegance, storage, and utility.',
+          image: slide6,
+        },
       ].map((service, i) => (
         <div
           key={i}
-          className="bg-gray-50 border border-gray-200 p-6 rounded-xl shadow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
-          style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
+          className="rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 bg-white"
         >
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-40 object-cover rounded-md mb-4"
-          />
-          <div className="text-3xl mb-2">{service.icon}</div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-          <p className="text-gray-600 text-sm">{service.description}</p>
+          <div className="relative">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-64 object-cover rounded-t-3xl"
+            />
+            <div className="absolute bottom-4 right-4 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-white hover:text-black border border-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </div>
+          <div className="p-6 text-left">
+            <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+            <p className="text-gray-600 text-sm">{service.description}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -165,6 +219,10 @@ const AboutAndHow: React.FC = () => {
 
 
 
+
+
+
+{/*Process*/}
         <section className="bg-white py-20 px-6">
           <div className="inline-flex items-center justify-center px-5 py-2 bg-gray-100 rounded-full text-gray-600 text-sm font-semibold uppercase tracking-wide mb-4 shadow-sm">
             The Process
@@ -248,72 +306,99 @@ const AboutAndHow: React.FC = () => {
 
 
         {/* Core Values */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-12 text-slate-900 animate-fade-in-up">
-              Our Core Values
-            </h2>
+<section className="py-20 px-6 bg-white">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-16 text-slate-900 animate-fade-in-up">
+      Our Core Values
+    </h2>
 
-            <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-8">
-              {[
-                { label: "Innovation", icon: "💡" },
-                { label: "Quality Craftsmanship", icon: "🛠️" },
-                { label: "Client-Centric", icon: "🤝" },
-                { label: "Sustainability", icon: "🌿" },
-              ].map((value, i) => (
-                <div
-                  key={i}
-                  className="bg-white border border-gray-200 p-6 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
-                  style={{ animationDelay: `${i * 100}ms`, animationFillMode: 'both' }}
-                >
-                  <div className="text-4xl mb-4">{value.icon}</div>
-                  <h3 className="text-lg font-semibold text-gray-800">{value.label}</h3>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-10">
+      {[
+        {
+          label: "Innovation",
+          icon: "💡",
+          description:
+            "We continuously push boundaries to bring unique ideas and creative solutions to every space we design.",
+        },
+        {
+          label: "Quality Craftsmanship",
+          icon: "🛠️",
+          description:
+            "From foundation to finish, our team delivers with precision, care, and a commitment to perfection.",
+        },
+        {
+          label: "Client-Centric",
+          icon: "🤝",
+          description:
+            "We listen first, act second. Our process revolves around transparency, respect, and building trust.",
+        },
+        {
+          label: "Sustainability",
+          icon: "🌿",
+          description:
+            "Our designs embrace eco-conscious materials and long-term functionality for a greener tomorrow.",
+        },
+      ].map((value, i) => (
+        <div
+          key={i}
+          className="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-sm hover:shadow-lg transition duration-300 hover:-translate-y-2 animate-fade-in-up"
+          style={{ animationDelay: `${i * 100}ms`, animationFillMode: "both" }}
+        >
+          <div className="text-5xl mb-4">{value.icon}</div>
+          <h3 className="text-xl font-semibold text-slate-800 mb-3">{value.label}</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">{value.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
 
 
 
         {/* Meet the Team */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-4xl font-bold font-playfair mb-12">Meet the Team</h2>
-            <div className="grid sm:grid-cols-2 gap-10">
+<section className="py-16g-white font-playfair">
+  <h2 className="text-5xl md:text-7xl font-bold text-stone-800 mb-20 text-center">
+    Meet The Team
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-6 md:px-20">
+    {/* Istyaq Ahmad */}
+    <div className="flex flex-col items-center text-center">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Istyaq Ahmad" className="w-40 h-40 rounded-full object-cover mb-6" />
+ {/* Replace with image if available */}
+      <h3 className="text-4xl font-bold text-gray-800">Istyaq Ahmad</h3>
+      <p className="text-3xl text-black opacity-80 font-semibold mb-1">
+        Founder & Creative Director
+      </p>
+      <p className="text-xl font-bold text-stone-500 max-w-md">
+        A visionary interior designer with a passion for elegance and functionality.
+      </p>
+    </div>
 
-              {/* Founder */}
-              <div className="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition">
-                <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  alt="Istyaq Ahmad"
-                  className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
-                />
-                <h3 className="text-xl font-semibold">Istyaq Ahmad</h3>
-                <p className="text-gray-500">Founder & Creative Director</p>
-                <p className="text-sm text-gray-600 mt-3">
-                  A visionary interior designer with a passion for elegance and functionality.
-                </p>
-              </div>
+    {/* Aman Verma */}
+    <div className="flex flex-col items-center text-center">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Istyaq Ahmad" className="w-40 h-40 rounded-full object-cover mb-6" />
+      <h3 className="text-4xl font-bold text-gray-800">Aman Verma</h3>
+      <p className="text-3xl text-black opacity-80 font-semibold mb-1">
 
-              {/* Co-Founder */}
-              <div className="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition">
-                <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  alt="Co-Founder"
-                  className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
-                />
-                <h3 className="text-xl font-semibold">Aman Verma</h3>
-                <p className="text-gray-500">Co-Founder & Operations Head</p>
-                <p className="text-sm text-gray-600 mt-3">
-                  Driving excellence through precision and process-driven project delivery.
-                </p>
-              </div>
+        Co-Founder & Operations Head
+      </p>
+      <p className="text-xl font-bold text-stone-500 max-w-md">
+        Driving excellence through precision and process-driven project delivery.
+      </p>
+    </div>
+  </div>
+</section>
 
-            </div>
-          </div>
-        </section>
+
+
+
+
+
+
+
 
 
         {/* Milestones */}
