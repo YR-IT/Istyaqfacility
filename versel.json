@@ -14,26 +14,7 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
-}
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
-}
-{
-  "routes": [
-    {
-      "src":"/",
-      "dest":"/"
-    },
-        {
-      "src":"/service",
-      "dest":"/"
-    }
-  ]
-}
-{
+  ],
   "routes": [
     {
       "src": "/[^.]+",
