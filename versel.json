@@ -6,6 +6,10 @@
       "destination": "/index.html"
     }
   ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
+
   "routes": [
     {
       "src": "/_next/static/(.*)",
