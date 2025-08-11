@@ -14,35 +14,39 @@ const slideImages = [slide1, slide2, slide3, slide4, slide5, slide6, slide7];
 const services = [
   {
     title: 'Interior Design',
-    description: 'Elegant, modern, and functional interiors with 3D visualizations, material selection, and custom concepts.',
+    tagline: "Where Every Property Finds Its Perfect Buyer",
+    description: 'We craft spaces that blend functionality with timeless elegance. From detailed 3D visualizations to curated material selections, every concept is tailored to your personality and lifestyle. Expect interiors that feel like home yet stand out with a designer’s touch.',
     image: slide1,
   },
   {
     title: 'Construction',
-    description: 'End-to-end construction solutions from layout planning to full build execution.',
+    tagline: "Where Every Property Finds Its Perfect Buyer",
+    description: 'Our construction services handle every detail—from architectural layout planning to precision execution—ensuring your vision becomes a reality. With a commitment to quality craftsmanship, we build structures that are both durable and aesthetically refined.',
     image: slide2,
   },
   {
     title: 'Renovation',
-    description: 'Transform your space with modern upgrades, space optimization, and budget-friendly improvements.',
+    tagline: "Where Every Property Finds Its Perfect Buyer",
+    description: 'We breathe new life into tired spaces through modern upgrades, efficient layouts, and creative design solutions. Whether it’s a subtle refresh or a full-scale transformation, our renovation work balances style, comfort, and practicality.',
     image: slide3,
   },
   {
     title: 'House Services',
-    description: 'Quick and reliable plumbing, electrical, carpentry, and maintenance services.',
+    tagline: "Where Every Property Finds Its Perfect Buyer",
+    description: 'Our quick, reliable house services cover plumbing, electrical work, carpentry, and general maintenance—helping you maintain a safe, comfortable, and beautiful home without the stress of coordination.',
     image: slide4,
   },
   {
     title: 'Painting & Decor',
-    description: 'Stylish painting, wall design, and decor planning with premium finishes.',
+    tagline: "Where Every Property Finds Its Perfect Buyer",
+    description: 'From bold accent walls to intricate textures, our painting and décor services bring life to your interiors. We work with premium finishes, personalized palettes, and refined décor planning to ensure every space feels curated and complete.',
     image: slide5,
-    
   },
   {
     title: 'Modular Kitchen',
-    description: 'Custom-built modular kitchens designed with elegance, storage, and utility.',
+    tagline: "Where Every Property Finds Its Perfect Buyer",
+    description: 'We design and install modular kitchens that are as beautiful as they are functional. Maximizing storage, optimizing workflow, and incorporating sleek finishes, we create kitchens that inspire both cooking and conversation.',
     image: slide6,
-   
   },
 ];
 
@@ -94,59 +98,71 @@ const ServicesPage = () => {
       </div>
 
       {/* Service Highlights */}
-      <div className="py-20 px-4 sm:px-8 lg:px-20">
-        {services.map((service, index) => {
-          const isEven = index % 2 === 0;
-          const controls = useAnimation();
-          const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+<div className="py-20 px-4 sm:px-8 lg:px-20">
+  {services.map((service, index) => {
+    const isEven = index % 2 === 0;
+    const controls = useAnimation();
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
-          useEffect(() => {
-            if (inView) {
-              controls.start({ opacity: 1, y: 0 });
-            }
-          }, [controls, inView]);
+    useEffect(() => {
+      if (inView) {
+        controls.start({ opacity: 1, y: 0 });
+      }
+    }, [controls, inView]);
 
-          return (
-            <motion.div
-              key={index}
-              ref={ref}
-              initial={{ opacity: 0, y: 100 }}
-              animate={controls}
-              transition={{ duration: 1, ease: 'easeOut' }}
-              className={`flex flex-col lg:flex-row items-center mb-24 gap-10 ${
-                !isEven ? 'lg:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Image */}
-              <motion.div
-                className="w-full lg:w-1/2 overflow-hidden rounded-3xl shadow-lg group"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-              >
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
-              </motion.div>
+    return (
+      <motion.div
+        key={index}
+        ref={ref}
+        initial={{ opacity: 0, y: 100 }}
+        animate={controls}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className={`flex flex-col lg:flex-row items-center mb-24 gap-10 ${
+          !isEven ? "lg:flex-row-reverse" : ""
+        }`}
+      >
+        {/* Image */}
+        <motion.div
+          className="w-full lg:w-1/2 overflow-hidden rounded-3xl shadow-lg group"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+          />
+        </motion.div>
 
-              {/* Content */}
-              <motion.div
-                className="w-full lg:w-1/2 text-stone-500 lg:px-20 text-center lg:text-left"
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-              >
-                <h2 className="text-4xl md:text-5xl font-semibold mb-4 font-playfair">
-                  {service.title}
-                </h2>
-                <p className="text-lg text-black  leading-relaxed">{service.description}</p>
-              </motion.div>
-            </motion.div>
-          );
-        })}
-      </div>
+        {/* Content */}
+        <motion.div
+          className="w-full lg:w-1/2 text-stone-500 lg:px-20 text-center lg:text-left"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-semibold mb-2 font-playfair text-black">
+            {service.title}
+          </h2>
+
+          {/* Tagline */}
+          {service.tagline && (
+            <p className="text-lg italic #007F5F	 mb-4">
+              {service.tagline}
+            </p>
+          )}
+
+          {/* Description */}
+          <p className="text-lg text-stone-600 leading-relaxed tracking-wide">
+            {service.description}
+          </p>
+        </motion.div>
+      </motion.div>
+    );
+  })}
+</div>
+
     </div>
   );
 };
