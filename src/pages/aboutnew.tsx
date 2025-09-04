@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Target, Award, Users, Lightbulb,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import '../components/stylesheet/Main.css';
 import '../components/stylesheet/index.css';
 import background from '../assests/Untitled video - Made with Clipchamp.mp4';
@@ -14,7 +13,6 @@ import slide3 from '../assests/slideShow3.jpg';
 import slide4 from '../assests/slideShow4.jpg';
 import slide5 from '../assests/slideShow5.jpg';
 import slide6 from '../assests/slideShow6.jpg';
-import slide7 from '../assests/slideShow7.jpg';
 
 interface ValueItem {
   icon: React.ElementType;
@@ -75,7 +73,6 @@ const AboutAndHow: React.FC = () => {
 
       <div className="bg-white text-slate-900 font-sans">
 
-
         {/* Our Story */}
         {/* Innovation Section */}
         <section className="relative py-24 bg-white overflow-hidden">
@@ -94,7 +91,6 @@ const AboutAndHow: React.FC = () => {
               alt="Decor Right"
               className="absolute bottom-0.5 right-0 w-[500px] opacity-100 z-0"
             />
-
 
             <div className="relative z-10 text-center max-w-3xl mx-auto">
               <span className="inline-block bg-gray-900 text-white text-xs px-4 py-1 rounded-full mb-4 tracking-widest uppercase">
@@ -131,19 +127,19 @@ const AboutAndHow: React.FC = () => {
           </div>
         </section>
 
-
-
-
-        {/* What We Do */}
         {/* What We Do */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             {/* Header Section */}
             <div className="flex flex-col md:flex-row justify-between items-center mb-16">
-              <div>
-                <span className="uppercase tracking-widest text-sm text-gray-500 font-medium">Latest Services</span>
-                <h2 className="text-5xl font-bold font-playfair text-slate-900 mt-3">Discover what we do</h2>
-              </div>
+              <div className="text-center md:text-left">
+  <span className="uppercase tracking-widest text-sm text-gray-500 font-medium">
+    Latest Services
+  </span>
+  <h2 className="text-5xl font-bold font-playfair text-slate-900 mt-3">
+    Discover what we do
+  </h2>
+</div>
               <a
                 href="/services"
                 className="mt-6 md:mt-0 inline-flex items-center gap-2 border border-black px-6 py-2 rounded-full text-black hover:bg-black hover:text-white transition"
@@ -217,81 +213,82 @@ const AboutAndHow: React.FC = () => {
           </div>
         </section>
 
-
-
-
         {/*Process*/}
-        <section className="bg-white py-20 px-6">
-          <div className="inline-flex items-center justify-center px-5 py-2 bg-gray-100 rounded-full text-gray-600 text-sm font-semibold uppercase tracking-wide mb-4 shadow-sm">
-            The Process
-          </div>
+        <section className="bg-white py-12 px-6">
+  <div className="text-center">
+  <div className="inline-flex items-center justify-center px-5 py-2 bg-gray-100 rounded-full text-gray-600 text-sm font-semibold uppercase tracking-wide mb-4 shadow-sm mx-auto">
+    The Process
+  </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-16 leading-tight">
-            Meet our studio in <br /> numbers:
-          </h2>
+  <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-16 leading-tight">
+    Meet our studio in <br /> numbers:
+  </h2>
+</div>
 
-          <div className="relative border-t border-gray-300">
-            <div className="flex justify-between items-start text-center relative">
-
-              {[
-                {
-                  year: "2005",
-                  title: "London Creative Competition",
-                  desc: "Award-winning debut that marked our entry into the world of visionary interior design.",
-                },
-                {
-                  year: "2012",
-                  title: "Building Center of Gloucester",
-                  desc: "Redefined commercial space with functional elegance and timeless design.",
-
-
-                },
-                {
-                  year: "2015",
-                  title: "Global Kitchen and Bath",
-                  desc: "Transformed everyday spaces into luxurious and intuitive experiences.",
-                },
-                {
-                  year: "2020",
-                  title: "Euro-plus Design of Wayland",
-                  desc: "Blended European aesthetics with modern comfort for contemporary living.",
-                },
-              ].map((item, index) => (
-                <div key={index} className="w-1/4 px-4 relative">
-                  {/* Dot inside Circle */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                  </div>
-
-                  {/* Year */}
-                  <p className="text-gray-400 text-2xl mt-12">{item.year}</p>
-
-                  {/* Title and Description */}
-                  <div className="mt-6 text-left">
-                    <h4 className="text-2xl font-semibold text-gray-900 leading-snug">
-                      {item.title}
-                    </h4>
-                    <p className="text-gray-600 text-lg mt-3 leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+  <div className="relative border-t border-gray-300">
+    <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between items-start text-center relative">
+      {[
+        {
+          year: "2005",
+          title: "London Creative Competition",
+          desc: "Award-winning debut that marked our entry into the world of visionary interior design.",
+        },
+        {
+          year: "2012",
+          title: "Building Center of Gloucester",
+          desc: "Redefined commercial space with functional elegance and timeless design.",
+        },
+        {
+          year: "2015",
+          title: "Global Kitchen and Bath",
+          desc: "Transformed everyday spaces into luxurious and intuitive experiences.",
+        },
+        {
+          year: "2020",
+          title: "Euro-plus Design of Wayland",
+          desc: "Blended European aesthetics with modern comfort for contemporary living.",
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="w-full md:w-1/2 lg:w-1/4 px-4 mb-12 md:mb-8 relative"
+        >
+          {/* Dot inside Circle */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
             </div>
           </div>
 
-          <div className="mt-16 flex items-center gap-6">
-            <span className="px-4 py-2 bg-black text-white text-base font-bold rounded-full">
-              Hurry
-            </span>
-            <p className="text-gray-800 text-lg">
-              Let&apos;s make something great together.{" "}
-              <a href="/contact" className="text-black underline font-semiboldld">Got a project in mind?</a>
+          {/* Year */}
+          <p className="text-gray-400 text-2xl mt-12">{item.year}</p>
+
+          {/* Title and Description */}
+          <div className="mt-6 text-left">
+            <h4 className="text-2xl font-semibold text-gray-900 leading-snug">
+              {item.title}
+            </h4>
+            <p className="text-gray-600 text-lg mt-3 leading-relaxed">
+              {item.desc}
             </p>
           </div>
-        </section>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div className="mt-16 flex flex-col md:flex-row items-start md:items-center gap-6">
+    <span className="px-4 py-2 bg-black text-white text-base font-bold rounded-full">
+      Hurry
+    </span>
+    <p className="text-gray-800 text-lg">
+      Let&apos;s make something great together.{" "}
+      <a href="/contact" className="text-black underline font-semiboldld">
+        Got a project in mind?
+      </a>
+    </p>
+  </div>
+</section>
 
         <section className="overflow-hidden bg-white py-6">
           <div className="whitespace-nowrap animate-marquee text-black text-4xl sm:text-6xl font-semibold tracking-wide font-sans">

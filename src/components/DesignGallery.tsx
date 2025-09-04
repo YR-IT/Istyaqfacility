@@ -1,57 +1,62 @@
-import React, { useEffect, useState } from "react";
-import { FaInfoCircle } from "react-icons/fa"; // install react-icons if not already
+import { useEffect, useState } from "react";
+import { FaInfoCircle } from "react-icons/fa";
+
+interface ImageItem {
+  url: string;
+  title: string;
+  description: string;
+}
 
 const DesignGallery = () => {
-  const [zoomIndex, setZoomIndex] = useState(null);
-  const [showInfo, setShowInfo] = useState(false);
+  const [zoomIndex, setZoomIndex] = useState<number | null>(null);
+  const [showInfo, setShowInfo] = useState<boolean>(false);
 
-const images = [
-  {
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    title: "Luxury Living Room",
-    description:
-      "A modern luxury living room designed with a harmonious blend of comfort and sophistication. Plush seating, premium textured fabrics, and warm ambient lighting create a cozy yet opulent atmosphere. The large windows invite natural light, enhancing the earthy color palette and highlighting intricate décor elements."
-  },
-  {
-    url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
-    title: "Elegant Office Space",
-    description:
-      "An elegantly designed office space tailored for productivity and inspiration. Featuring minimalist furniture, ergonomic chairs, and abundant natural light, this workspace encourages focus while maintaining a serene, clutter-free environment. Thoughtfully placed indoor plants bring freshness and life to the interior."
-  },
-  {
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    title: "Contemporary Kitchen",
-    description:
-      "A sleek, contemporary kitchen boasting marble countertops, high-end appliances, and seamless cabinetry. The open layout maximizes functionality while maintaining a stylish aesthetic. Subtle LED lighting under the counters adds a modern touch, perfect for both cooking and social gatherings."
-  },
-  {
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    title: "Modern Workspace",
-    description:
-      "A cozy yet efficient workspace designed for modern professionals. The space incorporates ergonomic furniture, smart storage solutions, and a neutral color palette for a calm working environment. Accented with wooden finishes and soft task lighting, it creates the perfect setting for productivity."
-  },
-  {
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    title: "Creative Studio Design",
-    description:
-      "An inspiring creative studio that stimulates imagination with its vibrant color palette and open floor plan. Artistic wall displays, movable workstations, and natural light pouring in from large windows make it ideal for brainstorming, design work, and collaborative projects."
-  },
-  {
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    title: "Elegant Hallway",
-    description:
-      "A spacious, elegant hallway featuring polished wooden floors, soft overhead lighting, and carefully curated wall art. The neutral tones create a welcoming transition between rooms, while subtle decorative accents add personality without overwhelming the space."
-  }
-];
-
+  const images: ImageItem[] = [
+    {
+      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      title: "Luxury Living Room",
+      description:
+        "A modern luxury living room designed with a harmonious blend of comfort and sophistication. Plush seating, premium textured fabrics, and warm ambient lighting create a cozy yet opulent atmosphere. The large windows invite natural light, enhancing the earthy color palette and highlighting intricate décor elements."
+    },
+    {
+      url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      title: "Elegant Office Space",
+      description:
+        "An elegantly designed office space tailored for productivity and inspiration. Featuring minimalist furniture, ergonomic chairs, and abundant natural light, this workspace encourages focus while maintaining a serene, clutter-free environment. Thoughtfully placed indoor plants bring freshness and life to the interior."
+    },
+    {
+      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      title: "Contemporary Kitchen",
+      description:
+        "A sleek, contemporary kitchen boasting marble countertops, high-end appliances, and seamless cabinetry. The open layout maximizes functionality while maintaining a stylish aesthetic. Subtle LED lighting under the counters adds a modern touch, perfect for both cooking and social gatherings."
+    },
+    {
+      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      title: "Modern Workspace",
+      description:
+        "A cozy yet efficient workspace designed for modern professionals. The space incorporates ergonomic furniture, smart storage solutions, and a neutral color palette for a calm working environment. Accented with wooden finishes and soft task lighting, it creates the perfect setting for productivity."
+    },
+    {
+      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      title: "Creative Studio Design",
+      description:
+        "An inspiring creative studio that stimulates imagination with its vibrant color palette and open floor plan. Artistic wall displays, movable workstations, and natural light pouring in from large windows make it ideal for brainstorming, design work, and collaborative projects."
+    },
+    {
+      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      title: "Elegant Hallway",
+      description:
+        "A spacious, elegant hallway featuring polished wooden floors, soft overhead lighting, and carefully curated wall art. The neutral tones create a welcoming transition between rooms, while subtle decorative accents add personality without overwhelming the space."
+    }
+  ];
 
   const handlePrev = () => {
-    setZoomIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+    setZoomIndex((prev) => (prev !== null ? (prev > 0 ? prev - 1 : images.length - 1) : 0));
     setShowInfo(false);
   };
 
   const handleNext = () => {
-    setZoomIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+    setZoomIndex((prev) => (prev !== null ? (prev < images.length - 1 ? prev + 1 : 0) : 0));
     setShowInfo(false);
   };
 
@@ -62,7 +67,7 @@ const images = [
 
   // Keyboard navigation
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (zoomIndex !== null) {
         if (e.key === "ArrowLeft") handlePrev();
         else if (e.key === "ArrowRight") handleNext();
@@ -115,7 +120,7 @@ const images = [
                 {images[zoomIndex].title}
               </h3>
               <button
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.stopPropagation();
                   setShowInfo((prev) => !prev);
                 }}
@@ -136,7 +141,7 @@ const images = [
             {/* Image + Arrows */}
             <div className="relative flex items-center justify-center">
               <button
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.stopPropagation();
                   handlePrev();
                 }}
@@ -152,7 +157,7 @@ const images = [
               />
 
               <button
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.stopPropagation();
                   handleNext();
                 }}
@@ -164,7 +169,7 @@ const images = [
 
             {/* Close Button */}
             <button
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.stopPropagation();
                 handleClose();
               }}

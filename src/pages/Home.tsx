@@ -1,19 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import backgroundVideo from "../assests/7578554-uhd_3840_2160_30fps.mp4";
-import magazine from "../assests/magazine.jpg";
 import "../components/stylesheet/Main.css";
-import DesignGallery from "../components/DesignGallery";
 import background from "../assests/background_footer.jpg";
 import template from "../assests/image.png";
-import {
-  Users,
-  Palette,
-  Clock,
-  DollarSign,
-  Gem,
-} from "lucide-react";
-import { FaStar, FaShieldAlt, FaUsers } from "react-icons/fa";
+import DesignGallery from "../components/DesignGallery";
 
 //  Feature Cards Data
 const features = [
@@ -41,7 +31,7 @@ const features = [
 
 const WhyChooseUs = () => (
   <section className="bg-gradient-to-b from-white to-white px-6 md:px-20 py-">
-    <h2 className="text-7xl font-bold text-center text-stone-800 font-playfair mb-16">
+    <h2 className="text-5xl sm:text-6xl font-bold text-center text-stone-800 font-playfair mb-16">
       Why Choose Us
     </h2>
 
@@ -93,7 +83,6 @@ const WhyChooseUs = () => (
   </section>
 );
 
-
 const Home = () => {
   return (
     <div className="relative">
@@ -104,7 +93,7 @@ const Home = () => {
         </video>
         <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="relative z-20 text-center px-4">
-          <h1 className="text-6xl sm:text-6xl font-playfair font-semibold leading-tight mb-6">
+          <h1 className="text-5xl sm:text-6xl font-playfair font-semibold leading-tight mb-6">
             Get a Designer <br /> Space You'll Love
           </h1>
           <div className="flex flex-col sm:flex-row sm:gap-3">
@@ -126,7 +115,6 @@ const Home = () => {
 
       <WhyChooseUs />
 
-      {/* PROCESS SECTION */}
       {/* PROCESS SECTION */}
       <section className="py-24 bg-white font-playfair">
         <h2 className="text-5xl md:text-7xl font-bold text-stone-800 mb-20 text-center">
@@ -184,12 +172,6 @@ const Home = () => {
         </div>
       </section>
 
-
-
-
-
-
-
       {/* CONSULTATION SECTION */}
       <section className="relative w-full overflow-hidden">
         <img
@@ -205,8 +187,6 @@ const Home = () => {
           </button>
         </Link>
       </section>
-
-
 
       {/* ABOUT US SECTION */}
       <section className="bg-white py-20 px-6 md:px-20">
@@ -227,12 +207,12 @@ const Home = () => {
             ))}
           </div>
           <div className="w-full lg:w-1/2">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 leading-snug font-playfair">
-              Creative solutions <br />
-              By Professional <br />
-              Interior designers
-            </h2>
-            <p className="text-gray-600 mb-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 leading-snug font-playfair text-center md:text-left">
+  Creative solutions <br />
+  By Professional <br />
+  Interior designers
+</h2>
+            <p className="text-gray-600 mb-6 text-justify">
               Your space is an expression of who you are, and its design should match your lifestyle. Whether you have
               traditional tastes or desire a modern feel, we can design your dream space to suit any purpose.{" "}
               <span className="text-black font-medium">We provide the best interior design in Gurgaon.</span>

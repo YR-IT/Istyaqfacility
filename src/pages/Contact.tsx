@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Phone, Mail, MapPin, MessageCircle, Send, Clock, Facebook, Instagram, Linkedin
 } from 'lucide-react';
 import '../components/stylesheet/Main.css';
 import backgroundVideo from '../assests/3773486-hd_1920_1080_30fps.mp4';
-import Footer from '../components/Footer';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,14 +13,14 @@ const Contact = () => {
     message: ''
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const whatsappMessage = `Hello! I'm interested in your services.%0A%0AName: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0A%0AMessage: ${formData.message}`;
     window.open(`https://wa.me/919646703020?text=${whatsappMessage}`, '_blank');
@@ -55,8 +54,8 @@ const Contact = () => {
             {/* Left: Info */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-black mb-2 font-playfair">Get In Touch</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <h3 className="text-2xl font-bold text-black mb-2 font-playfair text-center">Get In Touch</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed text-center">
                   We'd love to hear about your project. Contact us for a free consultation
                   and let's discuss how we can bring your vision to life.
                 </p>
@@ -147,7 +146,7 @@ const Contact = () => {
 
             {/* Right: Form */}
             <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md">
-              <h3 className="text-2xl font-bold text-black mb-6 font-playfair">Send us a Message</h3>
+              <h3 className="text-2xl font-bold text-black mb-6 font-playfair text-center">Send us a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <input type="text" name="name" required value={formData.name} onChange={handleChange}
                   placeholder="Your Name"
